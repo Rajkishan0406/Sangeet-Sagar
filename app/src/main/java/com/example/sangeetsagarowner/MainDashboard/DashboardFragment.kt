@@ -6,14 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.R
-import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
 
 class DashboardFragment : Fragment(){
@@ -48,9 +44,9 @@ class DashboardFragment : Fragment(){
 
         var itemname = ArrayList<Users>()
 
-        database.addValueEventListener(object : ValueEventListener{
+ /*       database.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
+                if(snapshot!!.exists()){
                     for( h in snapshot.children){
                         val name = h.getValue(Users::class.java)
                         itemname.add(name!!)
@@ -62,8 +58,16 @@ class DashboardFragment : Fragment(){
 
             }
 
-        });
-
+        })
+*/
+        itemname.add(Users("Amplifier"))
+        itemname.add(Users("Mixture"))
+        itemname.add(Users("Mike"))
+        itemname.add(Users("Unit"))
+        itemname.add(Users("Speaker"))
+        itemname.add(Users("Horn"))
+        itemname.add(Users("Column Box"))
+        itemname.add(Users("Diaphgram"))
 
 
         val adapter = UsersAdapter(itemname)
