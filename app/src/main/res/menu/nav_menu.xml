@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nobody"
+            android:title=""
+            />
+
+
+        <item
+            android:id="@+id/about_dealer"
+            android:title="About Owner"
+            />
+
+        <item
+            android:id="@+id/time_table"
+            android:title="Time Table"
+            />
+
+        <item
+            android:id="@+id/contact_developer"
+            android:title="Contatct Developer"
+            />
+
+        <item
+            android:id="@+id/night_mode"
+            android:title="Night Mode"
+            />
+
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            />
+
+    </group>
+
+</menu>

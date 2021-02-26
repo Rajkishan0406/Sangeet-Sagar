@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "113500341168",
+    "firebase_url": "https://date-1-flmixo.firebaseio.com",
+    "project_id": "date-1-flmixo",
+    "storage_bucket": "date-1-flmixo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113500341168:android:ca5617efc7e4007986cc75",
+        "android_client_info": {
+          "package_name": "com.example.sangeetsagarowner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113500341168-m2hqfu4fdq9jqab4m5e00illib5gei3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfk4xM4qkAJmxfhiQP1YbqgQPhZRwtlhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113500341168-m2hqfu4fdq9jqab4m5e00illib5gei3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
