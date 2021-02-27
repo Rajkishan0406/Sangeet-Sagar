@@ -19,7 +19,7 @@ import java.util.*
 
 class New_Item_Addition : BottomSheetDialogFragment() {
 
-    lateinit var name : EditText
+    lateinit var name :EditText
     lateinit var btn : CardView
     lateinit var database : DatabaseReference
 

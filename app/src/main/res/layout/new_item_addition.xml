@@ -27,29 +27,22 @@
             android:layout_marginLeft="20dp"
             android:background="@color/red"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_margin="20dp"
-            app:cardBackgroundColor="@color/shadow"
-            >
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_marginBottom="2dp"
-                android:layout_height="40dp">
+       <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Item Name"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="8dp"
+           android:layout_marginBottom="25dp"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                <EditText
-                    android:id="@+id/item_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:drawablePadding="8dp"
-                    android:hint="Add Item"
-                    android:textSize="18dp"/>
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/item_name"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
 
-            </androidx.cardview.widget.CardView>
-
-        </androidx.cardview.widget.CardView>
+       </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_button_add"
