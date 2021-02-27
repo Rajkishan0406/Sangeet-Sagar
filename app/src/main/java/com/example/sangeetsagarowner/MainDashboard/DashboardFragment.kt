@@ -48,6 +48,7 @@ class DashboardFragment : Fragment(){
         database?.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot!!.exists()){
+                    itemname.clear()
                     for( h in snapshot.children){
                         val name = h.getValue()
                         itemname.add(Users(name as String))
