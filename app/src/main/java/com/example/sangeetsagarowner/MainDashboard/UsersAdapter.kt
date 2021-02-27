@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.R
+import java.nio.BufferUnderflowException
 
 class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<UsersAdapter.ViewHolder>(){
 
@@ -27,6 +28,10 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
                 Log.i("item clicked was : "," "+user.item)
                 var activity = v!!.context as AppCompatActivity
                 val IDF = ItemDetailsFragment()
+                var bun : Bundle
+                bun = Bundle()
+                bun.putString("item",user.item)
+                IDF.arguments = bun
                 activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
             }
         })
