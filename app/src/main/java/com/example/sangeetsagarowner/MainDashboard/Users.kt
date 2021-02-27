@@ -8,7 +8,7 @@ class Users {
 
     }
 
-    constructor(item: String?) {
+    constructor(item: String) {
         this.item = item
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,13 +45,15 @@ class DashboardFragment : Fragment(){
 
         var itemname = ArrayList<Users>()
 
- /*       database.addValueEventListener(object : ValueEventListener{
+        database?.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot!!.exists()){
                     for( h in snapshot.children){
-                        val name = h.getValue(Users::class.java)
-                        itemname.add(name!!)
+                        val name = h.getValue()
+                        itemname.add(Users(name as String))
                     }
+                    val adapter = UsersAdapter(itemname)
+                    recyclerview.adapter = adapter
                 }
             }
 
@@ -59,20 +62,6 @@ class DashboardFragment : Fragment(){
             }
 
         })
-*/
-        itemname.add(Users("Amplifier"))
-        itemname.add(Users("Mixture"))
-        itemname.add(Users("Mike"))
-        itemname.add(Users("Unit"))
-        itemname.add(Users("Speaker"))
-        itemname.add(Users("Horn"))
-        itemname.add(Users("Column Box"))
-        itemname.add(Users("Diaphgram"))
-
-
-        val adapter = UsersAdapter(itemname)
-        recyclerview.adapter = adapter
-
 
 
         fb = view.findViewById(R.id.fab)
