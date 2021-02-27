@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ class DashboardFragment : Fragment(){
     lateinit var newitem : New_Item_Addition
     lateinit var database : DatabaseReference
     lateinit var recyclerview : RecyclerView
+    lateinit var progress : ProgressBar
 
     override fun onStart() {
         super.onStart()
@@ -38,6 +40,7 @@ class DashboardFragment : Fragment(){
 
         newitem = New_Item_Addition()
         database = FirebaseDatabase.getInstance().getReference("list")
+        progress = view .findViewById(R.id.progress_circular_item)
 
         recyclerview = view.findViewById(R.id.item_recycler_view)
         recyclerview.setHasFixedSize(true)
@@ -53,6 +56,7 @@ class DashboardFragment : Fragment(){
                         val name = h.getValue()
                         itemname.add(Users(name as String))
                     }
+                    progress.visibility = View.INVISIBLE
                     val adapter = UsersAdapter(itemname)
                     recyclerview.adapter = adapter
                 }

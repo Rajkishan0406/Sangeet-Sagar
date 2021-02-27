@@ -11,11 +11,14 @@
         android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/item_card"
         android:layout_width="match_parent"
         app:cardCornerRadius="15dp"
+        android:focusable="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
+        android:foreground="?selectableItemBackground"
         android:layout_height="wrap_content">
 
         <LinearLayout

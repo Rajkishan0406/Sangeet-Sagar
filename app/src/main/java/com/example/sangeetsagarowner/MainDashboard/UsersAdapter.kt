@@ -2,10 +2,13 @@ package com.example.sangeetsagarowner.MainDashboard
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.R
 
@@ -16,6 +19,9 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
         val user : Users = userlist[position]
 
         holder.texting.text = user.item
+        holder.card.setOnClickListener(View.OnClickListener {
+            Log.i("item clicked is : "," "+user.item)
+        })
 
     }
 
@@ -30,7 +36,7 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         var texting = itemView.findViewById(R.id.item_name_of_product) as TextView
+        var card  = itemView.findViewById(R.id.item_card) as CardView
+        }
 
     }
-
-}
