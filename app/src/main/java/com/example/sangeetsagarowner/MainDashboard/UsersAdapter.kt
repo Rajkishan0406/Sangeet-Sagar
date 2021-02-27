@@ -1,5 +1,6 @@
 package com.example.sangeetsagarowner.MainDashboard
 
+import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.R
@@ -18,9 +20,15 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user : Users = userlist[position]
 
+
         holder.texting.text = user.item
-        holder.card.setOnClickListener(View.OnClickListener {
-            Log.i("item clicked is : "," "+user.item)
+        holder.itemView.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Log.i("item clicked was : "," "+user.item)
+                var activity = v!!.context as AppCompatActivity
+                val IDF = ItemDetailsFragment()
+                activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
+            }
         })
 
     }
