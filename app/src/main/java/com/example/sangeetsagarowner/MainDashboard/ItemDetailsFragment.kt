@@ -29,14 +29,18 @@ class ItemDetailsFragment :Fragment(){
         bun = this.requireArguments()
         var name : String? = bun.getString("item")
 
-        Toast.makeText(activity,"Item Name : "+name,Toast.LENGTH_SHORT).show()
         Log.i("Item Name: ",""+name)
 
         fb = view.findViewById(R.id.fab1)
         new_prod = New_Product_Addition()
 
         fb.setOnClickListener(View.OnClickListener {
-            setFragment(New_Product_Addition())
+            var bundle : Bundle
+            bundle = Bundle()
+            bundle.putString("item",name)
+            var pp = New_Product_Addition()
+            pp.arguments = bundle
+            setFragment(pp)
         })
 
         return view
