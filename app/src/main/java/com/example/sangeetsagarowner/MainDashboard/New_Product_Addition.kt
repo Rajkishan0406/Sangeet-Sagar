@@ -5,18 +5,20 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.renderscript.Script
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.annotation.IntegerRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class New_Product_Addition : Fragment(){
 
@@ -29,12 +31,14 @@ class New_Product_Addition : Fragment(){
     lateinit var Ava : CardView
     lateinit var UnAva : CardView
     lateinit var submit : CardView
+    lateinit var progress : ProgressBar
     var check = -1
     lateinit var image : ImageView
     lateinit var select : ImageView
     private var imageUri: Uri? = null
     private val pickImage = 100
     lateinit var bun : Bundle
+    var checker = 0
 
     lateinit var database : DatabaseReference
 
@@ -56,6 +60,7 @@ class New_Product_Addition : Fragment(){
         price = view.findViewById(R.id.Price_)
         wright = view.findViewById(R.id.Weight)
         power = view.findViewById(R.id.Power)
+        progress = view.findViewById(R.id.progress_circular_product_addition)
         Des = view.findViewById(R.id.About_Model)
         Ava = view.findViewById(R.id.available_cardview)
         UnAva = view.findViewById(R.id.unavailable_cardview)
@@ -83,21 +88,92 @@ class New_Product_Addition : Fragment(){
         bun = Bundle()
         bun = this.requireArguments()
         var key : String? = bun.getString("item")
-        Toast.makeText(activity,"Item Name : "+key,Toast.LENGTH_SHORT).show()
+
+        var Name = name.text
+        var Brand = brand.text
+        var Price = price.text
+        var Weight = wright.text
+        var Power = power.text
+        var Describe = Des.text
 
         submit.setOnClickListener(View.OnClickListener {
-            var Name = name.text
-            var Brand = brand.text
-            var Price = price.text
-            var Weight = wright.text
-            var Power = power.text
-            var Describe = Des.text
+            checker = 0
             if(Name.isEmpty() || Brand.isEmpty() || Price.isEmpty() || Weight.isEmpty() || Power.isEmpty() || Describe.isEmpty()
                     || check == -1 || imageUri == null)
             {
                 Toast.makeText(activity,"Please fill all information ",Toast.LENGTH_SHORT).show()
             }
             else{
+                progress.visibility = View.VISIBLE
+                var found = 0;
+                var end = 0;
+                var ss = Name.toString()
+                if (key != null) {
+                    database.child(key).orderByKey().addValueEventListener(object : ValueEventListener{
+                        override fun onCancelled(error: DatabaseError) {
+
+                        }
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if(snapshot.exists()){
+                                for(h  in snapshot.children){
+                                    val name = h.key
+                                    if (name != null) {
+                                        if(name.equals(ss))
+                                            found = 1
+                                    }
+                                }
+                                if(found == 1 && checker != -1) {
+                                    Toast.makeText(activity,"Product Name already exit",Toast.LENGTH_SHORT).show()
+                                    checker = -1
+                                    progress.visibility = View.INVISIBLE
+                                }
+                                else {
+                                    if (checker != -1) {
+                                        var data: DatabaseReference
+                                        data = FirebaseDatabase.getInstance().getReference("Products")
+                                        if (key != null) {
+                                            data = FirebaseDatabase.getInstance().getReference("Products")
+                                            data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
+                                            data.child(key).child(Name.toString()).child("Price").setValue(Price.toString())
+                                            data.child(key).child(Name.toString()).child("Brand").setValue(Brand.toString())
+                                            data.child(key).child(Name.toString()).child("Weight").setValue(Weight.toString())
+                                            data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
+                                            data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
+                                            data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
+                                        }
+                                        Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
+                                        checker = -1
+                                        progress.visibility = View.INVISIBLE
+                                    }
+                                }
+                            }
+                            else {
+                                if (checker != -1) {
+                                    Toast.makeText(activity, "" + found, Toast.LENGTH_SHORT).show()
+                                    if (found == 1) {
+                                        Toast.makeText(activity, "Product Name already exit", Toast.LENGTH_SHORT).show()
+                                        progress.visibility = View.INVISIBLE
+                                    } else {
+                                        var data: DatabaseReference
+                                        if (key != null) {
+                                            data = FirebaseDatabase.getInstance().getReference("Products")
+                                            data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
+                                            data.child(key).child(Name.toString()).child("Price").setValue(Price.toString())
+                                            data.child(key).child(Name.toString()).child("Brand").setValue(Brand.toString())
+                                            data.child(key).child(Name.toString()).child("Weight").setValue(Weight.toString())
+                                            data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
+                                            data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
+                                            data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
+                                        }
+                                        Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
+                                        checker = -1
+                                        progress.visibility = View.INVISIBLE
+                                    }
+                                }
+                            }
+                        }
+                    })
+                }
 
             }
         })
