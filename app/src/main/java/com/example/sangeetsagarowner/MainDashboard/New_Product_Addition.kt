@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.renderscript.Script
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,9 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.util.jar.Attributes
 
 class New_Product_Addition : Fragment(){
 
@@ -39,6 +43,7 @@ class New_Product_Addition : Fragment(){
     private val pickImage = 100
     lateinit var bun : Bundle
     var checker = 0
+    lateinit var storage : StorageReference
 
     lateinit var database : DatabaseReference
 
@@ -68,6 +73,10 @@ class New_Product_Addition : Fragment(){
         image = view.findViewById(R.id.image)
         select = view.findViewById(R.id.select_image)
 
+        bun = Bundle()
+        bun = this.requireArguments()
+        var key : String? = bun.getString("item")
+
         select.setOnClickListener(View.OnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
@@ -75,6 +84,7 @@ class New_Product_Addition : Fragment(){
 
 
         database = FirebaseDatabase.getInstance().getReference("Products")
+        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key.toString()).child(name.toString())
 
         Ava.setOnClickListener(View.OnClickListener {
             check = 1;
@@ -84,10 +94,6 @@ class New_Product_Addition : Fragment(){
             check = 0;
         })
 
-
-        bun = Bundle()
-        bun = this.requireArguments()
-        var key : String? = bun.getString("item")
 
         var Name = name.text
         var Brand = brand.text
@@ -141,6 +147,8 @@ class New_Product_Addition : Fragment(){
                                             data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
                                         }
+                                        //......storing image...........
+                                        storeimage()
                                         Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
                                         progress.visibility = View.INVISIBLE
@@ -149,12 +157,12 @@ class New_Product_Addition : Fragment(){
                             }
                             else {
                                 if (checker != -1) {
-                                    Toast.makeText(activity, "" + found, Toast.LENGTH_SHORT).show()
                                     if (found == 1) {
                                         Toast.makeText(activity, "Product Name already exit", Toast.LENGTH_SHORT).show()
                                         progress.visibility = View.INVISIBLE
                                     } else {
                                         var data: DatabaseReference
+                                        data = FirebaseDatabase.getInstance().getReference("products")
                                         if (key != null) {
                                             data = FirebaseDatabase.getInstance().getReference("Products")
                                             data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
@@ -165,6 +173,8 @@ class New_Product_Addition : Fragment(){
                                             data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
                                         }
+                                        //......storing image...........
+                                        storeimage()
                                         Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
                                         progress.visibility = View.INVISIBLE
@@ -179,6 +189,17 @@ class New_Product_Addition : Fragment(){
         })
 
         return view
+    }
+
+    private fun storeimage() {
+        imageUri?.let {
+            storage.putFile(it).addOnSuccessListener {
+                    Log.i("image upload : ","Successfull")
+            }
+                    .addOnFailureListener(){
+                        Log.i("image upload : ","Fail")
+                    }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
