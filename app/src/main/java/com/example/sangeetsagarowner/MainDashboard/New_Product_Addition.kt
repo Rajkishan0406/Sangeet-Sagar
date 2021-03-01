@@ -149,9 +149,7 @@ class New_Product_Addition : Fragment(){
                                         //......storing image...........
                                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
                                         storeimage()
-                                        Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
-                                        progress.visibility = View.INVISIBLE
                                     }
                                 }
                             }
@@ -176,9 +174,7 @@ class New_Product_Addition : Fragment(){
                                         //......storing image...........
                                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
                                         storeimage()
-                                        Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
-                                        progress.visibility = View.INVISIBLE
                                     }
                                 }
                             }
@@ -195,9 +191,15 @@ class New_Product_Addition : Fragment(){
     private fun storeimage() {
         imageUri?.let {
             storage.putFile(it).addOnSuccessListener {
+                Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
+                checker = -1
+                progress.visibility = View.INVISIBLE
                     Log.i("image upload : ","Successfull")
             }
                     .addOnFailureListener(){
+                        Toast.makeText(activity, "Some thing went wrong!! please try again later", Toast.LENGTH_SHORT).show()
+                        checker = -1
+                        progress.visibility = View.INVISIBLE
                         Log.i("image upload : ","Fail")
                     }
         }
