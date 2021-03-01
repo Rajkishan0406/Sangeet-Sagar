@@ -51,9 +51,15 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             app:elevation="45dp"
-            android:layout_marginBottom="25dp"
-            app:cardBackgroundColor="@color/red"
-            app:cardCornerRadius="20dp">
+            android:layout_marginBottom="25dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_loop="true"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/button"/>
 
             <TextView
                 android:layout_width="match_parent"
