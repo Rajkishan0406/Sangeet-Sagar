@@ -1,5 +1,8 @@
 package com.example.sangeetsagarowner.MainDashboard
 
+import android.graphics.Color
+import android.graphics.Color.RED
+import android.hardware.camera2.params.RggbChannelVector.RED
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -27,9 +30,10 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
         holder.model.text = product.item_model
         if(product.item_availability.toString().equals("1"))
             holder.avalable.text = "Available"
-        else
+        else {
             holder.avalable.text = "Not Available"
-
+            holder.card.setCardBackgroundColor(Color.RED);
+        }
 
         holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
