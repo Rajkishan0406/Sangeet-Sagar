@@ -102,6 +102,7 @@
                     android:textSize="16dp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/prod_ava_card"
                 android:layout_width="150dp"
                 android:layout_height="20dp"
                 app:cardCornerRadius="20dp"

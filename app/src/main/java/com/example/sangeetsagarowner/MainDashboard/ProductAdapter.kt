@@ -32,7 +32,7 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
             holder.avalable.text = "Available"
         else {
             holder.avalable.text = "Not Available"
-            holder.card.setCardBackgroundColor(Color.RED);
+            holder.cardm.setCardBackgroundColor(Color.RED);
         }
 
         holder.itemView.setOnClickListener(object : View.OnClickListener{
@@ -55,6 +55,7 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
             var model = itemView.findViewById(R.id.product_model) as TextView
             var avalable = itemView.findViewById(R.id.product_available) as TextView
             var card = itemView.findViewById(R.id.product_cardview) as CardView
+            var cardm = itemView.findViewById(R.id.prod_ava_card) as CardView
     }
 
 }
