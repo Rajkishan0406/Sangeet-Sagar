@@ -84,7 +84,6 @@ class New_Product_Addition : Fragment(){
 
 
         database = FirebaseDatabase.getInstance().getReference("Products")
-        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key.toString()).child(name.toString())
 
         Ava.setOnClickListener(View.OnClickListener {
             check = 1;
@@ -148,6 +147,7 @@ class New_Product_Addition : Fragment(){
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
                                         }
                                         //......storing image...........
+                                        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
                                         storeimage()
                                         Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
@@ -174,6 +174,7 @@ class New_Product_Addition : Fragment(){
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
                                         }
                                         //......storing image...........
+                                        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
                                         storeimage()
                                         Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                                         checker = -1
