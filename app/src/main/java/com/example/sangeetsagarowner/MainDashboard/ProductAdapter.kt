@@ -23,8 +23,13 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
 
         holder.mod.text = product.item_name
         holder.price.text = product.item_price
+
         holder.model.text = product.item_model
-        holder.avalable.text = product.item_availability
+        if(product.item_availability.toString().equals("1"))
+            holder.avalable.text = "Available"
+        else
+            holder.avalable.text = "Not Available"
+
 
         holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
