@@ -1,7 +1,9 @@
 package com.example.sangeetsagarowner.MainDashboard
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +19,7 @@ import com.example.sangeetsagarowner.Authentication.ForgotPassword
 import com.example.sangeetsagarowner.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
+import java.util.prefs.Preferences
 
 class ItemDetailsFragment :Fragment(){
 
@@ -39,9 +42,17 @@ class ItemDetailsFragment :Fragment(){
         savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.item_details_fragment,container,false)
 
-        bun = Bundle()
         bun = this.requireArguments()
         var name : String? = bun.getString("item")
+
+        var pref = PreferenceManager.getDefaultSharedPreferences(activity)
+        pref.apply {
+            val item_father = name.toString()
+            val editor = pref.edit()
+            editor.putString("Item_Father",item_father)
+            editor.apply()
+        }
+
 
         progress = view.findViewById(R.id.product_progressbar)
         database = FirebaseDatabase.getInstance().getReference("Products")

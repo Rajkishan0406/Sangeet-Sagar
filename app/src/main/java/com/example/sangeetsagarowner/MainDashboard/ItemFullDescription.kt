@@ -1,7 +1,9 @@
 package com.example.sangeetsagarowner.MainDashboard
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +26,7 @@ class ItemFullDescription :Fragment(){
     lateinit var power : TextView
     lateinit var about : TextView
 
+    lateinit var sharedPreferences: SharedPreferences
     lateinit var database : DatabaseReference
 
     override fun onStart() {
@@ -42,6 +45,9 @@ class ItemFullDescription :Fragment(){
         bun = this.requireArguments()
         var key : String? = bun.getString("item")
 
+        var pref = PreferenceManager.getDefaultSharedPreferences(activity)
+        var item_father = pref.getString("Item_Father",null)
+
         model = view.findViewById(R.id.name)
         price = view.findViewById(R.id.price)
         weight = view.findViewById(R.id.weight)
@@ -49,10 +55,10 @@ class ItemFullDescription :Fragment(){
         power = view.findViewById(R.id.power)
         about = view.findViewById(R.id.about)
 
-        database = FirebaseDatabase.getInstance().getReference("Products")
+        database = item_father?.let { FirebaseDatabase.getInstance().getReference("Products").child(it) }!!
 
 
-        Toast.makeText(activity,""+key,Toast.LENGTH_SHORT).show()
+
 
         return view
     }

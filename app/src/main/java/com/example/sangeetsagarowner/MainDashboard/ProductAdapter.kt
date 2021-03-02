@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -62,6 +63,7 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
             var price = itemView.findViewById(R.id.product_price) as TextView
             var model = itemView.findViewById(R.id.product_model) as TextView
             var avalable = itemView.findViewById(R.id.product_available) as TextView
+            var image = itemView.findViewById(R.id.product_image) as ImageView
             var card = itemView.findViewById(R.id.product_cardview) as CardView
             var cardm = itemView.findViewById(R.id.prod_ava_card) as CardView
     }
