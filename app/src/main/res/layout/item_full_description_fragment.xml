@@ -1,6 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Model Name"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="SPA 1000 MODEL"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Brand Name"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="AHUJA"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Weight"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="31 kg"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Price"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="31500"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Power Consumption"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="440 watt power"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="About Model"/>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:text="Heay duty machine"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/available_cardview"
+            android:layout_width="160dp"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="28dp"
+            app:cardBackgroundColor="@color/green"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:text="Avaviable"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="70dp"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                app:cardElevation="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        app:lottie_loop="true"
+                        android:scaleType="centerCrop"
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/red" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Edit"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="28dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                app:cardElevation="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        app:lottie_loop="true"
+                        android:scaleType="centerCrop"
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/red" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/red" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Delete"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="28dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

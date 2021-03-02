@@ -17,7 +17,6 @@
 
 
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/login_cardview"
         android:layout_width="330dp"
@@ -56,59 +55,42 @@
                 android:layout_marginLeft="11dp"
                 android:background="@color/shadow"/>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                app:cardBackgroundColor="@color/shadow"
-                >
-           <androidx.cardview.widget.CardView
-               android:layout_width="match_parent"
-               android:layout_marginBottom="2dp"
-               android:layout_height="40dp">
-
-               <EditText
-                   android:id="@+id/email"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:drawableLeft="@drawable/ic_baseline_email_24"
-                   android:drawablePadding="8dp"
-                   android:textSize="18dp"
-                   android:inputType="textEmailAddress"
-                   android:hint="Email Id" />
-
-           </androidx.cardview.widget.CardView>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
                 android:layout_marginTop="18dp"
+                android:hint="Email"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardBackgroundColor="@color/shadow"
-                >
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_marginBottom="2dp"
-                android:layout_height="40dp">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="6dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:hint="Password"
+                android:layout_marginLeft="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:drawableLeft="@drawable/ic_baseline_lock_24"
-                    android:drawablePadding="8dp"
-                    android:textSize="18dp"
                     android:inputType="textPassword"
-                    android:hint="Password" />
+                    android:drawablePadding="6dp"/>
 
-            </androidx.cardview.widget.CardView>
-
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_button"
@@ -116,7 +98,7 @@
                 android:layout_height="38dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="28dp"
                 app:elevation="45dp">
 
                 <com.airbnb.lottie.LottieAnimationView

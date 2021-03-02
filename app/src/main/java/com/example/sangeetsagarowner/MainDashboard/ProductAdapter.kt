@@ -3,11 +3,13 @@ package com.example.sangeetsagarowner.MainDashboard
 import android.graphics.Color
 import android.graphics.Color.RED
 import android.hardware.camera2.params.RggbChannelVector.RED
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.R
@@ -38,7 +40,13 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
         holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 Log.i("clicked item name : ",""+product.item_name)
-
+                var activity = v!!.context as AppCompatActivity
+                val IDF = ItemFullDescription()
+                var bun : Bundle
+                bun = Bundle()
+                bun.putString("item",product.item_name)
+                IDF.arguments = bun
+                activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
             }
 
         })
