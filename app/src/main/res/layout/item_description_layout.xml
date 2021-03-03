@@ -11,10 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         app:cardCornerRadius="10dp"
+        android:foreground="?selectableItemBackground"
+        android:focusable="true"
         android:elevation="20dp"
-        app:cardBackgroundColor="@color/white"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/item_layout_background"/>
 
         <LinearLayout
             android:layout_width="match_parent"

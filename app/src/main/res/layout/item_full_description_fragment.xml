@@ -157,19 +157,20 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/available_cardview"
-                android:layout_width="160dp"
-                android:layout_height="28dp"
+                android:layout_width="190dp"
+                android:layout_height="32dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 app:cardBackgroundColor="@color/green"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="5dp">
+                app:cardElevation="10dp">
 
                 <TextView
                     android:id="@+id/ava_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="3dp"
+                    android:textSize="18dp"
                     android:text="Avaviable"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
