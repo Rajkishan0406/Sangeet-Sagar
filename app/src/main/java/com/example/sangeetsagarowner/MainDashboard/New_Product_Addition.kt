@@ -145,7 +145,6 @@ class New_Product_Addition : Fragment(){
                                             data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
                                             data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
-                                            data.child(key).child(Name.toString()).child("Url").setValue(imageUri)
                                         }
                                         //......storing image...........
                                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())

@@ -105,7 +105,7 @@ class ItemFullDescription :Fragment(){
                         avatext.setText("Not Available")
                     }
                     progress.visibility = View.INVISIBLE
-                    storage
+                    //storage
                 }
             }
 
