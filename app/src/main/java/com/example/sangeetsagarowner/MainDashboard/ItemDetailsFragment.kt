@@ -70,7 +70,7 @@ class ItemDetailsFragment :Fragment(){
                         itemname.clear()
                         for( h in snapshot.children){
                             val model_name = h.child("Model").getValue() as? String
-                            val model_price = h.child("Price").getValue() as? String
+                            val model_price = "Price " + h.child("Price").getValue() as? String
                             val model_brand = h.child("Brand").getValue() as? String
                             val model_available = h.child("Availability").getValue() as? String
                             itemname.add(ProductModel(model_name,model_price, model_brand, model_available))

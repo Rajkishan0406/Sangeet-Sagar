@@ -139,12 +139,13 @@ class New_Product_Addition : Fragment(){
                                         if (key != null) {
                                             data = FirebaseDatabase.getInstance().getReference("Products")
                                             data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
-                                            data.child(key).child(Name.toString()).child("Price").setValue("Price :" + Price.toString())
+                                            data.child(key).child(Name.toString()).child("Price").setValue(Price.toString())
                                             data.child(key).child(Name.toString()).child("Brand").setValue(Brand.toString())
                                             data.child(key).child(Name.toString()).child("Weight").setValue(Weight.toString())
                                             data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
                                             data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
                                             data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
+                                            data.child(key).child(Name.toString()).child("Url").setValue(imageUri)
                                         }
                                         //......storing image...........
                                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
