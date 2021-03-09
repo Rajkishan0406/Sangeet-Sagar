@@ -10,10 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.IntegerRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -35,6 +32,7 @@ class New_Product_Addition : Fragment(){
     lateinit var Ava : CardView
     lateinit var UnAva : CardView
     lateinit var submit : CardView
+    lateinit var status : TextView
     lateinit var progress : ProgressBar
     var check = -1
     lateinit var image : ImageView
@@ -71,6 +69,7 @@ class New_Product_Addition : Fragment(){
         UnAva = view.findViewById(R.id.unavailable_cardview)
         submit = view.findViewById(R.id.done)
         image = view.findViewById(R.id.image)
+        status = view.findViewById(R.id.available_cardview_status)
         select = view.findViewById(R.id.select_image)
 
         bun = Bundle()
@@ -87,10 +86,12 @@ class New_Product_Addition : Fragment(){
 
         Ava.setOnClickListener(View.OnClickListener {
             check = 1;
+            status.setHint("Product Available")
         })
 
         UnAva.setOnClickListener(View.OnClickListener {
             check = 0;
+            status.setHint("Product Is Not Available")
         })
 
 

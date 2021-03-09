@@ -154,6 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/available_cardview"
                     android:layout_width="160dp"
@@ -174,6 +175,7 @@
                         android:textColor="@color/white" />
 
                 </androidx.cardview.widget.CardView>
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/unavailable_cardview"
@@ -200,6 +202,16 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/available_cardview_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/done"
+            android:layout_marginBottom="5dp"
+            android:hint="No status"
+            android:textAlignment="center"
+            android:textSize="18dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/done"
