@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_card"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="15dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:elevation="20dp"
+            android:layout_marginTop="5dp"
+            android:foreground="?selectableItemBackground"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/item_layout_background"/>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="85dp"
+                android:background="@color/red"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="100dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="280dp"
+                app:lottie_rawRes="@raw/buble"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+
+            <TextView
+                android:id="@+id/item_name_of_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amplifier"
+                android:textSize="28dp"
+                android:layout_margin="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
