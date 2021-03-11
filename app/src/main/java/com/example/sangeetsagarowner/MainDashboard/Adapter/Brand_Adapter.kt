@@ -22,6 +22,15 @@ class Brand_Adapter(var brandlist : ArrayList<Brand_Model>) : RecyclerView.Adapt
         holder.texting.text = brand.brand
         var bb = brand.brand
 
+        holder.itemView.setOnLongClickListener(object : View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+
+
+
+                return true
+            }
+
+        })
 
     }
 
