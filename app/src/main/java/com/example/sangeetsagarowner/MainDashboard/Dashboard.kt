@@ -25,13 +25,13 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-            setFragment(Brand_Name())
+            setFragment(About_Owner())
 
 
 
     }
 
-    private fun setFragment(loginFragment: Brand_Name) {
+    private fun setFragment(loginFragment: About_Owner) {
         var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
         ft.replace(R.id.dashboard_frame,loginFragment)
         ft.commit()

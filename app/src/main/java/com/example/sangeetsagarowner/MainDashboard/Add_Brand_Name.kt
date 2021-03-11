@@ -34,7 +34,7 @@ class Add_Brand_Name : BottomSheetDialogFragment() {
 
         name = view.findViewById(R.id.item_name)
         btn = view.findViewById(R.id.cardview_button_add)
-        var id = UUID.randomUUID().toString()
+
         database = FirebaseDatabase.getInstance().getReference("Brand")
 
         btn.setOnClickListener(View.OnClickListener {
@@ -46,6 +46,7 @@ class Add_Brand_Name : BottomSheetDialogFragment() {
                 Toast.makeText(activity, "Maximum text length is 20!!", Toast.LENGTH_SHORT).show()
             }
             else{
+                var id = item
                 database.child(id).setValue(item)
                 Toast.makeText(activity, "Brand Name Added", Toast.LENGTH_SHORT).show()
                 dismiss()

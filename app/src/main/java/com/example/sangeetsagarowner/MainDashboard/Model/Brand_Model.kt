@@ -1,4 +1,4 @@
-package com.example.sangeetsagarowner.MainDashboard
+package com.example.sangeetsagarowner.MainDashboard.Model
 
 class Brand_Model {
 

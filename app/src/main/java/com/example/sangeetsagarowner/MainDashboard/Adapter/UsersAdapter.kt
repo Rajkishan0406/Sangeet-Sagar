@@ -1,19 +1,17 @@
-package com.example.sangeetsagarowner.MainDashboard
+package com.example.sangeetsagarowner.MainDashboard.Adapter
 
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sangeetsagarowner.MainDashboard.ItemDetailsFragment
+import com.example.sangeetsagarowner.MainDashboard.Model.Users
 import com.example.sangeetsagarowner.R
-import java.nio.BufferUnderflowException
 
 class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<UsersAdapter.ViewHolder>(){
 
@@ -34,6 +32,13 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
                 IDF.arguments = bun
                 activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
             }
+        })
+        holder.itemView.setOnLongClickListener(object : View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+                Log.i("item clicked was : "," "+user.item)
+                return true
+            }
+
         })
 
     }

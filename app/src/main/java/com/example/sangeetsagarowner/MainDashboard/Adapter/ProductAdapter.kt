@@ -1,8 +1,6 @@
-package com.example.sangeetsagarowner.MainDashboard
+package com.example.sangeetsagarowner.MainDashboard.Adapter
 
 import android.graphics.Color
-import android.graphics.Color.RED
-import android.hardware.camera2.params.RggbChannelVector.RED
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sangeetsagarowner.MainDashboard.ItemFullDescription
+import com.example.sangeetsagarowner.MainDashboard.Model.ProductModel
 import com.example.sangeetsagarowner.R
 
 class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
@@ -21,11 +21,11 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_description_layout,parent,false)
-        return ProductAdapter.ViewHolder(v)
+        return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val product :ProductModel = productlist[position]
+        val product : ProductModel = productlist[position]
 
         holder.mod.text = product.item_name
         holder.price.text = product.item_price

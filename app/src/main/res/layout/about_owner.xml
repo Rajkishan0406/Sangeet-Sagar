@@ -6,6 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"
+        android:elevation="15dp"
+        app:cardCornerRadius="8dp"
+        android:layout_below="@id/forth">
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@id/forth"
+       android:scaleType="fitXY"
+       android:src="@drawable/item_layout_background"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/owner_card"
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -24,18 +44,21 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="140dp"
+                app:cardBackgroundColor="@color/shadow"
                 android:layout_alignParentBottom="true"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="10dp">
 
             <ImageView
                 android:id="@+id/owner_image"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="140dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/paint"/>
+                android:layout_marginTop="-3dp"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/profile_image"/>
 
             </androidx.cardview.widget.CardView>
 
