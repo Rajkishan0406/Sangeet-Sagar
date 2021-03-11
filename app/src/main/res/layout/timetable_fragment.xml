@@ -1,6 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:fitsSystemWindows="true"
+            android:focusable="true"
+            android:layout_height="wrap_content">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:background="@color/light"
+                 android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sun_card"
+            android:layout_width="80dp"
+            android:layout_centerVertical="true"
+            android:layout_height="100dp"
+            android:elevation="15dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/sun_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sun_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sun"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:textSize="28dp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mon_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:layout_marginLeft="100dp"
+                android:elevation="15dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/mon_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/item_layout_background"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/mon_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mon"
+                        android:textColor="@color/red"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tues_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:elevation="15dp"
+                android:layout_marginLeft="190dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/tues_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tues_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tues"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wed_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:elevation="15dp"
+                android:layout_marginLeft="280dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/wed_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/wed_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Wed"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/thurs_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:layout_marginLeft="370dp"
+                android:elevation="15dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/thurs_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/thurs_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thurs"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fri_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:elevation="15dp"
+                android:layout_marginLeft="450dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/fir_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/fri_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fri"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sat_card"
+                android:layout_width="80dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                android:elevation="15dp"
+                android:layout_marginLeft="450dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/sat_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/sat_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sat"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        android:textSize="28dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+             </LinearLayout>
+
+        </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

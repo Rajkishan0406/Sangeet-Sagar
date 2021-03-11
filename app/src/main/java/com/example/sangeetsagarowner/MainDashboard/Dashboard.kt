@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
 import com.example.sangeetsagarowner.Authentication.LoginFragment
 import com.example.sangeetsagarowner.NavigationMenuDrawer.Contact_Developer
+import com.example.sangeetsagarowner.NavigationMenuDrawer.TimetableFragment
 import com.example.sangeetsagarowner.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -24,13 +25,13 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-            setFragment(DashboardFragment())
+            setFragment(Brand_Name())
 
 
 
     }
 
-    private fun setFragment(loginFragment: DashboardFragment) {
+    private fun setFragment(loginFragment: Brand_Name) {
         var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
         ft.replace(R.id.dashboard_frame,loginFragment)
         ft.commit()
