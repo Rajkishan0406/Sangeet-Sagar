@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
 
 class TimetableFragment :Fragment(){
+
+    lateinit var fb : CardView
+    lateinit var newitem : Time_Update
 
     override fun onStart() {
         super.onStart()
@@ -20,6 +24,18 @@ class TimetableFragment :Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.timetable_fragment,container,false)
+        var view =  inflater.inflate(R.layout.timetable_fragment,container,false)
+
+
+        fb = view.findViewById(R.id.update_Timing)
+
+        newitem = Time_Update()
+
+
+        fb.setOnClickListener(View.OnClickListener {
+            newitem.show(childFragmentManager,"bottom sheet time updation")
+        })
+
+        return view
     }
 }
