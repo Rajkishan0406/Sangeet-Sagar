@@ -34,13 +34,20 @@
                 android:layout_height="85dp"
                 android:background="@color/red"/>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="100dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="280dp"
-                app:lottie_rawRes="@raw/buble"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="12dp"
+                android:src="@drawable/ic_baseline_delete_24"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/item_name_of_product"

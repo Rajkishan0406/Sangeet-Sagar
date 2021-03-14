@@ -50,8 +50,8 @@ class Time_Update : BottomSheetDialogFragment() {
         op = view.findViewById(R.id.open_cardview)
         cl = view.findViewById(R.id.close_cardview)
         status = view.findViewById(R.id.status)
-        set_time_from = view.findViewById(R.id.set_time_from)
-        set_time_to = view.findViewById(R.id.set_time_to)
+        set_time_from = view.findViewById(R.id.from_cardview)
+        set_time_to = view.findViewById(R.id.to_cardview)
         from_time = view.findViewById(R.id.time_text_from)
         to_time = view.findViewById(R.id.time_text_to)
 
@@ -75,7 +75,7 @@ class Time_Update : BottomSheetDialogFragment() {
                     time = jj.toString() + time.subSequence(2,time.length) + " PM"
                 }
                 to_time.setText(time)
-                time_from = to_time.text.toString()
+                time_to = to_time.text.toString()
             }
             TimePickerDialog(activity,timeSetListener,cal.get(Calendar.HOUR_OF_DAY),cal.get(Calendar.MINUTE),false).show()
         })
@@ -97,7 +97,7 @@ class Time_Update : BottomSheetDialogFragment() {
                     Time = jj.toString() + Time.subSequence(2,Time.length) + " PM"
                 }
                 from_time.setText(Time)
-                time_to = from_time.text.toString()
+                time_from = from_time.text.toString()
             }
             TimePickerDialog(activity,timeSetListener,Cal.get(Calendar.HOUR_OF_DAY),Cal.get(Calendar.MINUTE),false).show()
         })
