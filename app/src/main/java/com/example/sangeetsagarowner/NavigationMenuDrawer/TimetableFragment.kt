@@ -135,6 +135,7 @@ class TimetableFragment :Fragment(){
             tues_card.setCardBackgroundColor(Color.LTGRAY)
             tues_text.setTextColor(Color.BLUE)
             sun_text.setTextColor(Color.MAGENTA)
+            mon_text.setTextColor(Color.MAGENTA)
             wed_text.setTextColor(Color.MAGENTA)
             thurs_text.setTextColor(Color.MAGENTA)
             fri_text.setTextColor(Color.MAGENTA)
