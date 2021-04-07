@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainDashboard.Dashboard">
-
+    tools:context=".MainDashboard.Dashboard"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/light">
+        app:cardBackgroundColor="@color/teal_200"
+        android:layout_margin="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
         <TextView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:drawableRight="@drawable/ic_baseline_chevron_right_24"
-            android:drawablePadding="10dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sangeet Sagar"
+            android:textSize="25dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            />
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
-
-
 
     <FrameLayout
         android:id="@+id/dashboard_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp">
+        android:layout_below="@+id/cardview">
 
 
     </FrameLayout>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+   
+</RelativeLayout>

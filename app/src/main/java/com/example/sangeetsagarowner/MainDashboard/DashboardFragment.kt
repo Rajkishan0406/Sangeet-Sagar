@@ -11,11 +11,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.MainDashboard.Adapter.UsersAdapter
 import com.example.sangeetsagarowner.MainDashboard.Model.Users
 import com.example.sangeetsagarowner.R
+import com.example.sangeetsagarowner.SettingFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.*
@@ -27,10 +29,7 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
     lateinit var database : DatabaseReference
     lateinit var recyclerview : RecyclerView
     lateinit var progress : ProgressBar
-    lateinit var toggle : ActionBarDrawerToggle
-    lateinit var drawerLayout : DrawerLayout
-    lateinit var navView : NavigationView
-    lateinit var toolbar: Toolbar
+    lateinit var fab : FloatingActionButton
 
     override fun onStart() {
         super.onStart()
@@ -93,11 +92,26 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
         })
 
 
+        fab = view.findViewById(R.id.fab_setting)
+        fab.setOnClickListener(View.OnClickListener {
+            setFragmentSetting(SettingFragment())
+        })
+
         return view;
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         TODO("Not yet implemented")
+    }
+
+    private fun setFragmentSetting(forgotFragment: SettingFragment) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.dashboard_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
     }
 
 }

@@ -5,22 +5,26 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.renderscript.Script
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.IntegerRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
+import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import java.util.jar.Attributes
+import com.google.firebase.storage.StorageTask
+import com.google.firebase.storage.UploadTask
 
+
+@Suppress("UNREACHABLE_CODE")
 class New_Product_Addition : Fragment(){
 
     lateinit var name : EditText
@@ -51,9 +55,9 @@ class New_Product_Addition : Fragment(){
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         var view: View = inflater.inflate(R.layout.new_product_addition, container, false)
 
@@ -104,76 +108,141 @@ class New_Product_Addition : Fragment(){
 
         submit.setOnClickListener(View.OnClickListener {
             checker = 0
-            if(Name.isEmpty() || Brand.isEmpty() || Price.isEmpty() || Weight.isEmpty() || Power.isEmpty() || Describe.isEmpty()
-                    || check == -1 || imageUri == null)
-            {
-                Toast.makeText(activity,"Please fill all information ",Toast.LENGTH_SHORT).show()
-            }
-            else{
+            if (Name.isEmpty() || Brand.isEmpty() || Price.isEmpty() || Weight.isEmpty() || Power.isEmpty() || Describe.isEmpty()
+                || check == -1 || imageUri == null
+            ) {
+                Toast.makeText(activity, "Please fill all information ", Toast.LENGTH_SHORT).show()
+            } else {
                 progress.visibility = View.VISIBLE
                 var found = 0;
                 var end = 0;
                 var ss = Name.toString()
                 if (key != null) {
-                    database.child(key).orderByKey().addValueEventListener(object : ValueEventListener{
+                    database.child(key).orderByKey().addValueEventListener(object :
+                        ValueEventListener {
                         override fun onCancelled(error: DatabaseError) {
 
                         }
+
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            if(snapshot.exists()){
-                                for(h  in snapshot.children){
+                            if (snapshot.exists()) {
+                                for (h in snapshot.children) {
                                     val name = h.key
                                     if (name != null) {
-                                        if(name.equals(ss))
+                                        if (name.equals(ss))
                                             found = 1
                                     }
                                 }
-                                if(found == 1 && checker != -1) {
-                                    Toast.makeText(activity,"Product Name already exit",Toast.LENGTH_SHORT).show()
+                                if (found == 1 && checker != -1) {
+                                    Toast.makeText(
+                                        activity,
+                                        "Product Name already exit",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                     checker = -1
                                     progress.visibility = View.INVISIBLE
-                                }
-                                else {
+                                } else {
                                     if (checker != -1) {
                                         var data: DatabaseReference
-                                        data = FirebaseDatabase.getInstance().getReference("Products")
+                                        data =
+                                            FirebaseDatabase.getInstance().getReference("Products")
                                         if (key != null) {
-                                            data = FirebaseDatabase.getInstance().getReference("Products")
-                                            data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
-                                            data.child(key).child(Name.toString()).child("Price").setValue(Price.toString())
-                                            data.child(key).child(Name.toString()).child("Brand").setValue(Brand.toString())
-                                            data.child(key).child(Name.toString()).child("Weight").setValue(Weight.toString())
-                                            data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
-                                            data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
-                                            data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
+                                            data = FirebaseDatabase.getInstance()
+                                                .getReference("Products")
+                                            data.child(key).child(Name.toString()).child("Model")
+                                                .setValue(
+                                                    Name.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Price")
+                                                .setValue(
+                                                    Price.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Brand")
+                                                .setValue(
+                                                    Brand.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Weight")
+                                                .setValue(
+                                                    Weight.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Power")
+                                                .setValue(
+                                                    Power.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Describe")
+                                                .setValue(
+                                                    Describe.toString()
+                                                )
+                                            data.child(key).child(Name.toString())
+                                                .child("Availability").setValue(
+                                                    check.toString()
+                                                )
+                                            data.child(key).child(Name.toString())
+                                                .child("Image_Url").setValue(
+                                                    imageUri.toString()
+                                                )
                                         }
                                         //......storing image...........
-                                        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
+                                        storage =
+                                            FirebaseStorage.getInstance().reference.child("images/pic.jpg")
+                                                .child(
+                                                    key
+                                                ).child(name.text.toString())
                                         storeimage()
                                         checker = -1
                                     }
                                 }
-                            }
-                            else {
+                            } else {
                                 if (checker != -1) {
                                     if (found == 1) {
-                                        Toast.makeText(activity, "Product Name already exit", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(
+                                            activity,
+                                            "Product Name already exit",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                         progress.visibility = View.INVISIBLE
                                     } else {
                                         var data: DatabaseReference
-                                        data = FirebaseDatabase.getInstance().getReference("products")
+                                        data =
+                                            FirebaseDatabase.getInstance().getReference("products")
                                         if (key != null) {
-                                            data = FirebaseDatabase.getInstance().getReference("Products")
-                                            data.child(key).child(Name.toString()).child("Model").setValue(Name.toString())
-                                            data.child(key).child(Name.toString()).child("Price").setValue(Price.toString())
-                                            data.child(key).child(Name.toString()).child("Brand").setValue(Brand.toString())
-                                            data.child(key).child(Name.toString()).child("Weight").setValue(Weight.toString())
-                                            data.child(key).child(Name.toString()).child("Power").setValue(Power.toString())
-                                            data.child(key).child(Name.toString()).child("Describe").setValue(Describe.toString())
-                                            data.child(key).child(Name.toString()).child("Availability").setValue(check.toString())
+                                            data = FirebaseDatabase.getInstance()
+                                                .getReference("Products")
+                                            data.child(key).child(Name.toString()).child("Model")
+                                                .setValue(
+                                                    Name.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Price")
+                                                .setValue(
+                                                    Price.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Brand")
+                                                .setValue(
+                                                    Brand.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Weight")
+                                                .setValue(
+                                                    Weight.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Power")
+                                                .setValue(
+                                                    Power.toString()
+                                                )
+                                            data.child(key).child(Name.toString()).child("Describe")
+                                                .setValue(
+                                                    Describe.toString()
+                                                )
+                                            data.child(key).child(Name.toString())
+                                                .child("Availability").setValue(
+                                                    check.toString()
+                                                )
                                         }
                                         //......storing image...........
-                                        storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(key).child(name.text.toString())
+                                        storage =
+                                            FirebaseStorage.getInstance().reference.child("images/pic.jpg")
+                                                .child(
+                                                    key
+                                                ).child(name.text.toString())
                                         storeimage()
                                         checker = -1
                                     }
@@ -182,7 +251,6 @@ class New_Product_Addition : Fragment(){
                         }
                     })
                 }
-
             }
         })
 
@@ -195,13 +263,17 @@ class New_Product_Addition : Fragment(){
                 Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
                 checker = -1
                 progress.visibility = View.INVISIBLE
-                    Log.i("image upload : ","Successfull")
+                    Log.i("image upload : ", "Successfull")
             }
                     .addOnFailureListener(){
-                        Toast.makeText(activity, "Some thing went wrong!! please try again later", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            activity,
+                            "Some thing went wrong!! please try again later",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         checker = -1
                         progress.visibility = View.INVISIBLE
-                        Log.i("image upload : ","Fail")
+                        Log.i("image upload : ", "Fail")
                     }
         }
     }

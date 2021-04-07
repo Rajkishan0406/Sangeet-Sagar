@@ -32,7 +32,8 @@ class LoginFragment : Fragment(){
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = mAuth.currentUser
         if(currentUser != null){
-            Toast.makeText(activity, "already logged in", Toast.LENGTH_SHORT).show()
+            val intent = Intent(getActivity(), Dashboard::class.java)
+            getActivity()?.startActivity(intent)
         }
     }
 

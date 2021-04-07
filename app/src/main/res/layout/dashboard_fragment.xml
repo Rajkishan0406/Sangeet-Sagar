@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/dashboard_fragment_replace"
@@ -17,8 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         app:layout_constraintTop_toTopOf="@+id/item_recycler_view" />
 
 
@@ -38,5 +38,22 @@
         android:elevation="0dp"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         app:backgroundTint="#C8161B"/>
-    
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:transitionName="add_subject_transition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings_24"
+        app:fabCustomSize="60dp"
+        android:layout_margin="10dp"
+        android:elevation="0dp"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        app:backgroundTint="#C8161B"/>
+
+
+</RelativeLayout>
