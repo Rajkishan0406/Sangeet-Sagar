@@ -238,7 +238,7 @@
             android:layout_centerVertical="true"
             android:textAlignment="center"
             android:textSize="18dp "
-            android:text="Developed by Raj Kishan"/>
+            android:text="App Developed by Raj Kishan"/>
 
     </RelativeLayout>
 

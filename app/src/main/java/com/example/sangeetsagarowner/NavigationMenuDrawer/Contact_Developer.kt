@@ -77,7 +77,7 @@ class Contact_Developer : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     progress.visibility = View.INVISIBLE
-                    Toast.makeText(activity,""+snapshot.getValue().toString(),Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity,""+snapshot.getValue().toString(),Toast.LENGTH_SHORT).show()
                 }
                 else{
                     progress.visibility = View.INVISIBLE

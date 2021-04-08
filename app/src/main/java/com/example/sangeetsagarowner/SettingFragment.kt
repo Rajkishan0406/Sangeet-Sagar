@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.sangeetsagarowner.Authentication.AuthenticationActivity
 import com.example.sangeetsagarowner.MainDashboard.About_Owner
 import com.example.sangeetsagarowner.MainDashboard.Brand_Name
-import com.example.sangeetsagarowner.MainDashboard.Dashboard
 import com.example.sangeetsagarowner.NavigationMenuDrawer.Contact_Developer
 import com.example.sangeetsagarowner.NavigationMenuDrawer.TimetableFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -26,9 +25,9 @@ class SettingFragment : Fragment() {
     lateinit var mAuth : FirebaseAuth
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.setting_fragment, container, false)
 
         owner = view.findViewById(R.id.owner)
@@ -58,7 +57,8 @@ class SettingFragment : Fragment() {
         logout.setOnClickListener(View.OnClickListener {
             val intent = Intent(getActivity(), AuthenticationActivity::class.java)
             mAuth.signOut()
-            getActivity()?.startActivity(intent)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         })
 
         return view;
