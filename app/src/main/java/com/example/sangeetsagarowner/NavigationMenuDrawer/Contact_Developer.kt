@@ -24,6 +24,7 @@ class Contact_Developer : Fragment() {
 
     lateinit var mAuth : FirebaseAuth
     lateinit var database : DatabaseReference
+    var ref = 0 as Int;
 
     override fun onStart() {
         super.onStart()
@@ -43,6 +44,7 @@ class Contact_Developer : Fragment() {
         var UserId = mAuth.currentUser?.uid
 
         his.setOnClickListener(View.OnClickListener {
+            ref = 1;
             loadData()
         })
 
@@ -75,12 +77,13 @@ class Contact_Developer : Fragment() {
 
         data.orderByValue().addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
+                if(snapshot.exists() && ref == 1){
                     progress.visibility = View.INVISIBLE
                     Toast.makeText(activity,""+snapshot.getValue().toString(),Toast.LENGTH_SHORT).show()
                 }
                 else{
                     progress.visibility = View.INVISIBLE
+                    ref = -1;
                     Log.i("Message : ","No message History")
                 }
             }

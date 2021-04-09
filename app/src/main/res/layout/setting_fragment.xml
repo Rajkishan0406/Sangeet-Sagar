@@ -9,6 +9,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/owner"
         android:layout_width="match_parent"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -51,6 +53,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/time"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -94,6 +98,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/brand_collection"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -138,6 +144,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/ask_developer"
         android:layout_width="match_parent"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -180,6 +188,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/logout"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

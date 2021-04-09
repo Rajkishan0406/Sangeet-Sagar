@@ -78,7 +78,7 @@
                 android:textSize="22dp"
                 android:layout_centerVertical="true"
                 android:fontFamily="sans-serif-condensed"
-                android:layout_margin="12dp"/>
+                android:layout_marginLeft="12dp"/>
 
         </RelativeLayout>
 
