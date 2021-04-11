@@ -125,6 +125,66 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/show_comparison"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="100dp"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            app:cardElevation="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    app:lottie_loop="true"
+                    android:scaleType="centerCrop"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/button"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Show Comparison"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="28dp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
     </RelativeLayout>
 
 </LinearLayout>

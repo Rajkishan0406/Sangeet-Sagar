@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:src="@drawable/ic_baseline_feedback_24"/>
+                android:src="@drawable/ic_baseline_show_chart_24"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -25,6 +25,7 @@ class Sold_Product_Addition : Fragment() {
     lateinit var model : EditText
     lateinit var quantity : EditText
     lateinit var card : CardView
+    lateinit var com_card : CardView
     lateinit var prog : ProgressBar
     var check = -1
     var run = 0;
@@ -43,6 +44,7 @@ class Sold_Product_Addition : Fragment() {
         model = view.findViewById(R.id.Model_Name)
         quantity = view.findViewById(R.id.Quantity)
         card = view.findViewById(R.id.add)
+        com_card = view.findViewById(R.id.show_comparison)
         prog = view.findViewById(R.id.progressbar_sold_product_addition)
 
         card.setOnClickListener(View.OnClickListener {
@@ -58,6 +60,9 @@ class Sold_Product_Addition : Fragment() {
                 }
         })
 
+        com_card.setOnClickListener(View.OnClickListener {
+
+        })
 
         return view;
     }
