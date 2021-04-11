@@ -12,6 +12,7 @@ import com.example.sangeetsagarowner.Authentication.AuthenticationActivity
 import com.example.sangeetsagarowner.MainDashboard.About_Owner
 import com.example.sangeetsagarowner.MainDashboard.Brand_Name
 import com.example.sangeetsagarowner.NavigationMenuDrawer.Contact_Developer
+import com.example.sangeetsagarowner.NavigationMenuDrawer.Sold_Product_Addition
 import com.example.sangeetsagarowner.NavigationMenuDrawer.TimetableFragment
 import com.google.firebase.auth.FirebaseAuth
 
@@ -22,6 +23,7 @@ class SettingFragment : Fragment() {
     lateinit var ask : CardView
     lateinit var brand : CardView
     lateinit var logout : CardView
+    lateinit var sold_pro : CardView
     lateinit var mAuth : FirebaseAuth
 
     override fun onCreateView(
@@ -33,10 +35,15 @@ class SettingFragment : Fragment() {
         owner = view.findViewById(R.id.owner)
         time = view.findViewById(R.id.time)
         ask = view.findViewById(R.id.ask_developer)
+        sold_pro = view.findViewById(R.id.sold_product)
         brand = view.findViewById(R.id.brand_collection)
         logout = view.findViewById(R.id.logout)
 
         mAuth = FirebaseAuth.getInstance()
+
+        sold_pro.setOnClickListener(View.OnClickListener {
+            setsoldPro(Sold_Product_Addition())
+        })
 
         owner.setOnClickListener(View.OnClickListener {
             setownerSetting(About_Owner())
@@ -101,4 +108,15 @@ class SettingFragment : Fragment() {
             ft.addToBackStack(null).commit()
         }
     }
+
+    private fun setsoldPro(forgotFragment: Sold_Product_Addition) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.dashboard_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
+    }
+
     }
