@@ -82,7 +82,6 @@ class Sold_Product_Addition : Fragment() {
                             check = 100
                             if(added == 0)
                                 extraction(bb,md)
-                            added = 1
                         }
                     }
                     Log.i("Comes here"," "+added)
@@ -91,7 +90,16 @@ class Sold_Product_Addition : Fragment() {
                         added = 1
                         Toast.makeText(activity,"Item added",Toast.LENGTH_SHORT).show()
                         prog.visibility = View.INVISIBLE
-                        setfragment(SettingFragment())
+                        //setfragment(SettingFragment())
+                    }
+                }
+                else{
+                    if(added == 0 && check!=100){
+                        database.child(bb).child(md).child("Quantity").setValue(quantity.text.toString())
+                        added = 1
+                        Toast.makeText(activity,"Item added",Toast.LENGTH_SHORT).show()
+                        prog.visibility = View.INVISIBLE
+                        //setfragment(SettingFragment())
                     }
                 }
             }
@@ -111,18 +119,18 @@ class Sold_Product_Addition : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         var num = snapshot.child("Quantity").getValue() as String
-                        var Num: Int = num.toInt() + (quantity.text.toString()).toInt()
+                        var t = (quantity.text.toString()).toInt()
+                        var Num: Int = num.toInt() + t
                         Log.i("number is : ", "" + num + " & " + Num)
                         num = Num.toString()
-                        Toast.makeText(activity, "Item quantity updated to "+num, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Item quantity updated to", Toast.LENGTH_SHORT).show()
                         if(added == 0) {
                             database.child(bb).child(md).child("Quantity").setValue(num)
+                            added = 1
                         }
-                        added = 1
-                        setfragment(SettingFragment())
+                        //setfragment(SettingFragment())
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
