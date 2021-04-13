@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:id="@+id/Brand_input"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:hint="Brand Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:id="@+id/model_input"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/Brand_input"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:hint="Model Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Item_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/sold_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/model_input"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:text="Total Sold : "
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/sold_textview_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="15"
+        android:textSize="18dp"
+        android:textColor="@color/red"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/model_input"/>
+
+    <TextView
+        android:id="@+id/sold_brand_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sold_textview"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:text="Total Brand Sold : "
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/sold_brand_textview_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="40"
+        android:textSize="18dp"
+        android:textColor="@color/red"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/sold_textview"/>
+
+
+    <TextView
+        android:id="@+id/sold_all_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sold_brand_textview"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:text="All Product Sold : "
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/sold_all_textview_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="100"
+        android:textSize="18dp"
+        android:textColor="@color/red"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/sold_brand_textview"/>
+
+    <LinearLayout
+        android:layout_below="@+id/sold_all_textview"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:background="@color/green"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/teal_200"
+        android:layout_below="@+id/sold_all_textview_answer"/>
+
+    <TextView
+        android:layout_below="@+id/cardview1"
+        android:layout_width="150dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="5dp"
+        android:text="Item v/s Brand"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview2"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        app:cardCornerRadius="5dp"
+        android:layout_alignParentRight="true"
+        app:cardBackgroundColor="@color/teal_200"
+        android:layout_below="@+id/sold_all_textview_answer"/>
+
+    <TextView
+        android:layout_below="@+id/cardview2"
+        android:layout_width="150dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:text="Item v/s All Product"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/progress_comparison"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/cardview1"
+        android:layout_marginTop="50dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/show_comparison"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardElevation="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                app:lottie_loop="true"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/button"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/red" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/red" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/red" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/red" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Compare"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="28dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

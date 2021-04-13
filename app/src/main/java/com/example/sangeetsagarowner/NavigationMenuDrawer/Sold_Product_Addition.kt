@@ -31,6 +31,7 @@ class Sold_Product_Addition : Fragment() {
     var run = 0;
     var added = 0
 
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -61,7 +62,7 @@ class Sold_Product_Addition : Fragment() {
         })
 
         com_card.setOnClickListener(View.OnClickListener {
-
+                setcompareFragment(Product_Comparision())
         })
 
         return view;
@@ -113,7 +114,7 @@ class Sold_Product_Addition : Fragment() {
                         var Num: Int = num.toInt() + (quantity.text.toString()).toInt()
                         Log.i("number is : ", "" + num + " & " + Num)
                         num = Num.toString()
-                        Toast.makeText(activity, "Item quantity updated", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Item quantity updated to "+num, Toast.LENGTH_SHORT).show()
                         if(added == 0) {
                             database.child(bb).child(md).child("Quantity").setValue(num)
                         }
@@ -136,9 +137,18 @@ class Sold_Product_Addition : Fragment() {
             ft.replace(R.id.dashboard_frame, forgotFragment)
         }
         if (ft != null) {
-            ft.commit()
+            ft.addToBackStack(null).commit()
         }
     }
 
+    private fun setcompareFragment(forgotFragment: Product_Comparision) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.dashboard_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
+    }
 
 }
