@@ -175,7 +175,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Show Comparison"
+                    android:text="Sold Product Detail"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp" />

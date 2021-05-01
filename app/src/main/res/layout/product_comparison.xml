@@ -48,7 +48,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"
         android:textColor="@color/black"
-        android:text="Total Sold : "
+        android:text="Total Product Sold : "
         android:textSize="18dp"/>
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="15"
+        android:text="---"
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="40"
+        android:text="---"
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
@@ -97,7 +97,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:textColor="@color/black"
-        android:text="All Product Sold : "
+        android:text="Percentage Revenue from this product :"
         android:textSize="18dp"/>
 
     <TextView
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="100"
+        android:text="---"
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
@@ -113,6 +113,7 @@
         android:layout_below="@+id/sold_brand_textview"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout_product_comparision"
         android:layout_below="@+id/sold_all_textview"
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -122,52 +123,35 @@
         android:background="@color/green"
         />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview1"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardBackgroundColor="@color/teal_200"
-        android:layout_below="@+id/sold_all_textview_answer"/>
+    <TextView
+        android:id="@+id/heighest_sold_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout_product_comparision"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:text="Percentage Revenue from this product"
+        android:textSize="20dp"/>
 
     <TextView
-        android:layout_below="@+id/cardview1"
-        android:layout_width="150dp"
-        android:layout_marginTop="5dp"
+        android:id="@+id/heighest_sold_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/heighest_sold_text"
+        android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:layout_marginLeft="5dp"
-        android:text="Item v/s Brand"
-        android:layout_height="wrap_content"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview2"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="5dp"
-        app:cardCornerRadius="5dp"
-        android:layout_alignParentRight="true"
-        app:cardBackgroundColor="@color/teal_200"
-        android:layout_below="@+id/sold_all_textview_answer"/>
-
-    <TextView
-        android:layout_below="@+id/cardview2"
-        android:layout_width="150dp"
-        android:layout_marginTop="5dp"
-        android:textAlignment="center"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:text="Item v/s All Product"
-        android:layout_height="wrap_content"/>
+        android:textSize="20dp"
+        android:textColor="@color/green"
+        android:text="No Brand Selected"
+        android:layout_marginTop="3dp"/>
 
     <ProgressBar
         android:id="@+id/progress_comparison"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/cardview1"
+        android:layout_centerVertical="true"
         android:visibility="invisible"
         android:layout_marginTop="50dp"/>
 
@@ -178,7 +162,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
         app:cardElevation="15dp">
@@ -221,7 +205,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Compare"
+                android:text="Show Details"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="28dp" />
@@ -229,5 +213,13 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="*All those data is from a particular selected product"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="8dp"/>
 
 </RelativeLayout>

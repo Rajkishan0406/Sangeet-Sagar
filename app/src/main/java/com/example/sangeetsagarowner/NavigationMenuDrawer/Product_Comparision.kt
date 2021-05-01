@@ -45,6 +45,9 @@ class Product_Comparision : Fragment() {
         search.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
             var md = model.text.toString()
+            brand_sum = 0;
+            Brand_sum.setText("--")
+            item_sum.setText("--")
             if(bb.length == 0 && md.length == 0)
                 Toast.makeText(activity,"Please enter the fields",Toast.LENGTH_SHORT).show()
             else{
@@ -54,8 +57,10 @@ class Product_Comparision : Fragment() {
                         if(snapshot.exists()){
                             for(h in snapshot.children){
                                 var MODEL = h.key as String
+                                //Toast.makeText(activity,""+MODEL,Toast.LENGTH_SHORT).show()
                                 take_model_sum(MODEL,bb)
                                 if(MODEL.equals(md)){
+                                    Toast.makeText(activity,md+" & "+MODEL,Toast.LENGTH_SHORT).show()
                                     take_item_sum(md,bb)
                                 }
                             }
@@ -82,10 +87,10 @@ class Product_Comparision : Fragment() {
     }
 
     private fun take_model_sum(model: String, bb: String) {
-        database.child(bb).child(model).addValueEventListener(object : ValueEventListener{
+        database.child(bb).child(model).orderByValue().addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    var Num = snapshot.getValue() as String
+                    var Num = snapshot.child("Quantity").getValue() as String
                     var num = Num.toInt()
                     brand_sum = brand_sum + num
                 }
@@ -99,11 +104,10 @@ class Product_Comparision : Fragment() {
     }
 
     private fun take_item_sum(md: String, bb: String) {
-        database.child(bb).child(md).addValueEventListener(object : ValueEventListener{
+        database.child(bb).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    var Num = snapshot.getValue() as String
-                    item_sum.setText(Num)
+                    item_sum?.setText(snapshot.child(md).child("Quantity").getValue() as String)
                 }
             }
 

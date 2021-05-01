@@ -123,7 +123,7 @@ class Sold_Product_Addition : Fragment() {
                         var Num: Int = num.toInt() + t
                         Log.i("number is : ", "" + num + " & " + Num)
                         num = Num.toString()
-                        Toast.makeText(activity, "Item quantity updated to", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Item quantity updated", Toast.LENGTH_SHORT).show()
                         if(added == 0) {
                             database.child(bb).child(md).child("Quantity").setValue(num)
                             added = 1
