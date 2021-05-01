@@ -66,15 +66,11 @@ class Product_Comparision : Fragment() {
                         if(snapshot.exists()){
                             for(h in snapshot.children){
                                 var MODEL = h.key as String
-                                //Toast.makeText(activity,""+MODEL,Toast.LENGTH_SHORT).show()
                                 take_model_sum(MODEL,bb)
                                 if(MODEL.equals(md)){
-                                    //Toast.makeText(activity,md+" & "+MODEL,Toast.LENGTH_SHORT).show()
                                     take_item_sum(md,bb)
                                 }
                             }
-                            var ss = brand_sum.toString()
-                            Brand_sum.setText(ss)
                             prog.visibility = View.INVISIBLE
                         }
 
