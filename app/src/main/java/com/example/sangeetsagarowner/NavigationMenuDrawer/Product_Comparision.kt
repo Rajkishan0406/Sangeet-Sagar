@@ -60,7 +60,7 @@ class Product_Comparision : Fragment() {
                                 //Toast.makeText(activity,""+MODEL,Toast.LENGTH_SHORT).show()
                                 take_model_sum(MODEL,bb)
                                 if(MODEL.equals(md)){
-                                    Toast.makeText(activity,md+" & "+MODEL,Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(activity,md+" & "+MODEL,Toast.LENGTH_SHORT).show()
                                     take_item_sum(md,bb)
                                 }
                             }
@@ -70,7 +70,7 @@ class Product_Comparision : Fragment() {
                         }
                         else{
                             prog.visibility = View.INVISIBLE
-                            Toast.makeText(activity,"Above Brand Name is not addes in Sold Product",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity,"Above Brand Name is not added in Sold Product",Toast.LENGTH_SHORT).show()
                         }
                     }
 
@@ -93,6 +93,8 @@ class Product_Comparision : Fragment() {
                     var Num = snapshot.child("Quantity").getValue() as String
                     var num = Num.toInt()
                     brand_sum = brand_sum + num
+                    var ss = brand_sum.toString()
+                    Brand_sum.setText(ss)
                 }
             }
 
