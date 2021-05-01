@@ -1,6 +1,7 @@
 package com.example.sangeetsagarowner.NavigationMenuDrawer
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,10 +23,14 @@ class Product_Comparision : Fragment() {
     lateinit var prog : ProgressBar
 
     var brand_sum = 0 as Int
-    var total_sum = 0 as Int
+    var sum = 0 as Int
+    var max = 0 as Int
+    var ans = "" as String
 
     lateinit var item_sum : TextView
     lateinit var Brand_sum : TextView
+    lateinit var per : TextView
+    lateinit var heighest : TextView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -41,6 +46,8 @@ class Product_Comparision : Fragment() {
 
         item_sum = view.findViewById(R.id.sold_textview_answer)
         Brand_sum = view.findViewById(R.id.sold_brand_textview_answer)
+        per = view.findViewById(R.id.sold_all_percentage)
+        heighest = view.findViewById(R.id.heighest_sold_item)
 
         search.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
@@ -48,6 +55,8 @@ class Product_Comparision : Fragment() {
             brand_sum = 0;
             Brand_sum.setText("--")
             item_sum.setText("--")
+            per.setText("--")
+            heighest.setText("No Brand Selected")
             if(bb.length == 0 && md.length == 0)
                 Toast.makeText(activity,"Please enter the fields",Toast.LENGTH_SHORT).show()
             else{
@@ -68,6 +77,7 @@ class Product_Comparision : Fragment() {
                             Brand_sum.setText(ss)
                             prog.visibility = View.INVISIBLE
                         }
+
                         else{
                             prog.visibility = View.INVISIBLE
                             Toast.makeText(activity,"Above Brand Name is not added in Sold Product",Toast.LENGTH_SHORT).show()
@@ -92,6 +102,13 @@ class Product_Comparision : Fragment() {
                 if(snapshot.exists()){
                     var Num = snapshot.child("Quantity").getValue() as String
                     var num = Num.toInt()
+                    if(num > max) {
+                        max = num
+                        ans = model
+                        var peak = ans + ":" + max.toString()
+                        heighest.setText(peak)
+                    }
+                    Log.i("Max : ",""+num)
                     brand_sum = brand_sum + num
                     var ss = brand_sum.toString()
                     Brand_sum.setText(ss)
@@ -109,6 +126,8 @@ class Product_Comparision : Fragment() {
         database.child(bb).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
+                    var Sum = snapshot.child(md).child("Quantity").getValue() as String
+                    sum = Sum.toInt()
                     item_sum?.setText(snapshot.child(md).child("Quantity").getValue() as String)
                 }
             }

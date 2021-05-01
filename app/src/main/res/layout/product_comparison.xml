@@ -101,7 +101,7 @@
         android:textSize="18dp"/>
 
     <TextView
-        android:id="@+id/sold_all_textview_answer"
+        android:id="@+id/sold_all_percentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
