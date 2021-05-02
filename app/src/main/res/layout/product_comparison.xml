@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/model_input"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:layout_marginLeft="5dp"
         android:textColor="@color/black"
         android:text="Total Product Sold : "
@@ -56,7 +56,7 @@
         android:id="@+id/sold_textview_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:text="---"
         android:textSize="18dp"
         android:textColor="@color/red"
@@ -104,7 +104,7 @@
         android:background="@color/green"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="28dp"
         android:layout_below="@id/model_input"/>
 
     <LinearLayout
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:background="@color/green"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="28dp"
         android:layout_above="@id/linearLayout_product_comparision_first"
         android:layout_below="@+id/model_input"/>
 
@@ -123,7 +123,7 @@
         android:layout_below="@id/model_input"
         android:layout_alignParentRight="true"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="28dp"
         android:background="@color/green"/>
 
     <LinearLayout
