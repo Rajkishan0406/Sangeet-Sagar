@@ -21,6 +21,8 @@ class Product_Comparision : Fragment() {
     lateinit var model : EditText
     lateinit var search : CardView
     lateinit var prog : ProgressBar
+    lateinit var reset_prod : CardView
+    lateinit var reset_brand : CardView
 
     var brand_sum = 0 as Int
     var sum = 0 as Int
@@ -29,7 +31,6 @@ class Product_Comparision : Fragment() {
 
     lateinit var item_sum : TextView
     lateinit var Brand_sum : TextView
-    lateinit var per : TextView
     lateinit var heighest : TextView
 
     override fun onCreateView(
@@ -38,6 +39,8 @@ class Product_Comparision : Fragment() {
             savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.product_comparison, container, false)
 
+        reset_prod = view.findViewById(R.id.card_reset_product)
+        reset_brand = view.findViewById(R.id.card_reset_brand)
         brand = view.findViewById(R.id.Brand)
         model = view.findViewById(R.id.Item_Name)
         search = view.findViewById(R.id.show_comparison)
@@ -46,21 +49,24 @@ class Product_Comparision : Fragment() {
 
         item_sum = view.findViewById(R.id.sold_textview_answer)
         Brand_sum = view.findViewById(R.id.sold_brand_textview_answer)
-        per = view.findViewById(R.id.sold_all_percentage)
         heighest = view.findViewById(R.id.heighest_sold_item)
+
+        reset_brand.setOnClickListener(View.OnClickListener {
+
+        })
 
         search.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
             var md = model.text.toString()
+            prog.visibility = View.VISIBLE
             brand_sum = 0;
             Brand_sum.setText("--")
             item_sum.setText("--")
-            per.setText("--")
-            heighest.setText("No Brand Selected")
-            if(bb.length == 0 && md.length == 0)
-                Toast.makeText(activity,"Please enter the fields",Toast.LENGTH_SHORT).show()
+            if (bb.length == 0 && md.length == 0){
+                Toast.makeText(activity, "Please enter the fields", Toast.LENGTH_SHORT).show()
+                heighest.setText("No Brand Selected")
+            }
             else{
-                prog.visibility = View.VISIBLE
                 database.child(bb).orderByKey().addValueEventListener(object : ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if(snapshot.exists()){
@@ -71,12 +77,12 @@ class Product_Comparision : Fragment() {
                                     take_item_sum(md,bb)
                                 }
                             }
-                            prog.visibility = View.INVISIBLE
                         }
 
                         else{
                             prog.visibility = View.INVISIBLE
                             Toast.makeText(activity,"Above Brand Name is not added in Sold Product",Toast.LENGTH_SHORT).show()
+                            heighest.setText("No Brand Selected")
                         }
                     }
 

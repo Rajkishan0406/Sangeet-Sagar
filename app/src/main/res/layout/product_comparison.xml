@@ -39,6 +39,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <TextView
         android:id="@+id/sold_textview"
         android:layout_width="wrap_content"
@@ -63,13 +64,85 @@
         android:layout_marginRight="5dp"
         android:layout_below="@+id/model_input"/>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_reset_product"
+        android:layout_width="220dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/sold_textview_answer">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                app:lottie_loop="true"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/button"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Reset This Product to Zero"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/green"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/model_input"/>
+
+    <LinearLayout
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="3dp"
+        android:layout_above="@id/linearLayout_product_comparision_first"
+        android:layout_below="@+id/model_input"/>
+
+    <LinearLayout
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayout_product_comparision_first"
+        android:layout_below="@id/model_input"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/green"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_product_comparision_first"
+        android:layout_below="@+id/card_reset_product"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@color/green"
+        />
+
     <TextView
         android:id="@+id/sold_brand_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/sold_textview"
-        android:layout_marginTop="5dp"
+        android:layout_below="@+id/linearLayout_product_comparision_first"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"
         android:textColor="@color/black"
         android:text="Total Brand Sold : "
@@ -79,47 +152,84 @@
         android:id="@+id/sold_brand_textview_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:text="---"
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
-        android:layout_below="@+id/sold_textview"/>
+        android:layout_below="@+id/linearLayout_product_comparision_first"/>
 
 
-    <TextView
-        android:id="@+id/sold_all_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/sold_brand_textview"
-        android:layout_marginTop="5dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_reset_brand"
+        android:layout_width="220dp"
+        android:layout_height="22dp"
         android:layout_marginLeft="5dp"
-        android:textColor="@color/black"
-        android:text="Percentage Revenue from this product :"
-        android:textSize="18dp"/>
-
-    <TextView
-        android:id="@+id/sold_all_percentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="---"
-        android:textSize="18dp"
-        android:textColor="@color/red"
+        app:cardCornerRadius="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/sold_brand_textview_answer">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                app:lottie_loop="true"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/button"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Reset This Brand to Zero"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/linearLayout_product_comparision_first"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:background="@color/green"/>
+
+    <LinearLayout
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/linearLayout_product_comparision_first"
+        android:layout_marginLeft="2dp"
+        android:background="@color/green"
+        android:layout_above="@id/linearLayout_product_comparision"/>
+
+    <LinearLayout
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout_product_comparision_first"
+        android:layout_above="@id/linearLayout_product_comparision"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:layout_below="@+id/sold_brand_textview"/>
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/green"/>
 
     <LinearLayout
         android:id="@+id/linearLayout_product_comparision"
-        android:layout_below="@+id/sold_all_textview"
+        android:layout_below="@+id/card_reset_brand"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
         android:background="@color/green"
         />
 
@@ -131,7 +241,7 @@
         android:layout_marginTop="12dp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
-        android:text="Percentage Revenue from this product"
+        android:text="Heighest Revenue Product from this Brand"
         android:textSize="20dp"/>
 
     <TextView
@@ -218,7 +328,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="*All those data is from a particular selected product"
+        android:text="*On clicking reset brand all the products inside that brand will be reset to zero"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="8dp"/>
 
