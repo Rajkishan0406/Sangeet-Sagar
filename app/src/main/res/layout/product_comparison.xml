@@ -261,7 +261,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/show_comparison"
+        android:layout_marginBottom="40dp"
         android:visibility="invisible"
         android:layout_marginTop="50dp"/>
 
@@ -272,7 +273,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
         app:cardElevation="15dp">
@@ -324,12 +325,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="*On clicking reset brand all the products inside that brand will be reset to zero"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"/>
+
 
 </RelativeLayout>

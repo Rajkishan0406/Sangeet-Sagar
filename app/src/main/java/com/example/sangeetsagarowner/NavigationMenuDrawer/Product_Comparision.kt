@@ -108,6 +108,7 @@ class Product_Comparision : Fragment() {
             if (bb.length == 0 && md.length == 0){
                 Toast.makeText(activity, "Please enter the fields", Toast.LENGTH_SHORT).show()
                 heighest.setText("No Brand Selected")
+                prog.visibility = View.INVISIBLE
             }
             else{
                 database.child(bb).orderByKey().addValueEventListener(object : ValueEventListener{
@@ -120,6 +121,7 @@ class Product_Comparision : Fragment() {
                                     take_item_sum(md,bb)
                                 }
                             }
+                            prog.visibility = View.INVISIBLE
                         }
 
                         else{
@@ -127,6 +129,7 @@ class Product_Comparision : Fragment() {
                             if(item_deleted ==0 )
                             Toast.makeText(activity,"Above Brand Name is not added in Sold Product",Toast.LENGTH_SHORT).show()
                             heighest.setText("No Brand Selected")
+                            prog.visibility = View.INVISIBLE
                         }
                     }
 
@@ -136,7 +139,6 @@ class Product_Comparision : Fragment() {
 
                 })
             }
-            prog.visibility = View.INVISIBLE
         })
 
         return view
@@ -151,7 +153,7 @@ class Product_Comparision : Fragment() {
                     if(num >= max) {
                         max = num
                         ans = model
-                        var peak = ans + ":" + max.toString()
+                        var peak = ans + ": " + max.toString()
                         heighest.setText(peak)
                     }
                     Log.i("Max : ",""+num)
