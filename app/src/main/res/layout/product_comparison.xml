@@ -113,6 +113,7 @@
         android:background="@color/green"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="28dp"
+        android:layout_marginBottom="-5dp"
         android:layout_above="@id/linearLayout_product_comparision_first"
         android:layout_below="@+id/model_input"/>
 
@@ -123,6 +124,7 @@
         android:layout_below="@id/model_input"
         android:layout_alignParentRight="true"
         android:layout_marginRight="2dp"
+        android:layout_marginBottom="-5dp"
         android:layout_marginTop="28dp"
         android:background="@color/green"/>
 
@@ -212,6 +214,7 @@
         android:layout_below="@+id/linearLayout_product_comparision_first"
         android:layout_marginLeft="2dp"
         android:background="@color/green"
+        android:layout_marginBottom="-5dp"
         android:layout_above="@id/linearLayout_product_comparision"/>
 
     <LinearLayout
@@ -222,6 +225,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="2dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="-5dp"
         android:background="@color/green"/>
 
     <LinearLayout
