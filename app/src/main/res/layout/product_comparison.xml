@@ -61,7 +61,7 @@
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="8dp"
         android:layout_below="@+id/model_input"/>
 
     <androidx.cardview.widget.CardView
@@ -133,6 +133,7 @@
         android:layout_height="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
+        android:layout_marginTop="4dp"
         android:background="@color/green"
         />
 
@@ -157,7 +158,7 @@
         android:textSize="18dp"
         android:textColor="@color/red"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="8dp"
         android:layout_below="@+id/linearLayout_product_comparision_first"/>
 
 
@@ -230,6 +231,7 @@
         android:layout_height="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:layout_marginTop="4dp"
         android:background="@color/green"
         />
 
@@ -238,8 +240,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout_product_comparision"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="@color/black"
         android:text="Heighest Revenue Product from this Brand"
         android:textSize="20dp"/>
@@ -252,6 +255,7 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20dp"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="@color/green"
         android:text="No Brand Selected"
         android:layout_marginTop="3dp"/>
