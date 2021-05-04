@@ -55,6 +55,8 @@ class Product_Comparision : Fragment() {
         heighest = view.findViewById(R.id.heighest_sold_item)
         heigh = view.findViewById(R.id.heighest_sold_text)
 
+        reset_prod.visibility = View.INVISIBLE
+        reset_brand.visibility = View.INVISIBLE
 
         reset_prod.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
@@ -107,6 +109,8 @@ class Product_Comparision : Fragment() {
             brand_sum = 0;
             Brand_sum.setText("--")
             item_sum.setText("--")
+            reset_prod.visibility = View.INVISIBLE
+            reset_brand.visibility = View.INVISIBLE
             item_deleted = 0;
             if (bb.length == 0 && md.length == 0){
                 Toast.makeText(activity, "Please enter the fields", Toast.LENGTH_SHORT).show()
@@ -122,10 +126,12 @@ class Product_Comparision : Fragment() {
                                 var MODEL = h.key as String
                                 take_model_sum(MODEL,bb)
                                 if(MODEL.equals(md)){
+                                    reset_prod.visibility = View.VISIBLE
                                     take_item_sum(md,bb)
                                 }
                             }
                             heigh.setText("Heighest Revenue Product from this Brand")
+                            reset_brand.visibility = View.VISIBLE
                             prog.visibility = View.INVISIBLE
                         }
 
