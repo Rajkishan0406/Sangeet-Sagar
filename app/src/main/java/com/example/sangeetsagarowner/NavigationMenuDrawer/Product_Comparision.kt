@@ -34,6 +34,7 @@ class Product_Comparision : Fragment() {
     lateinit var item_sum : TextView
     lateinit var Brand_sum : TextView
     lateinit var heighest : TextView
+    lateinit var heigh : TextView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -52,6 +53,8 @@ class Product_Comparision : Fragment() {
         item_sum = view.findViewById(R.id.sold_textview_answer)
         Brand_sum = view.findViewById(R.id.sold_brand_textview_answer)
         heighest = view.findViewById(R.id.heighest_sold_item)
+        heigh = view.findViewById(R.id.heighest_sold_text)
+
 
         reset_prod.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
@@ -107,7 +110,8 @@ class Product_Comparision : Fragment() {
             item_deleted = 0;
             if (bb.length == 0 && md.length == 0){
                 Toast.makeText(activity, "Please enter the fields", Toast.LENGTH_SHORT).show()
-                heighest.setText("No Brand Selected")
+                heigh.setText("")
+                heighest.setText("")
                 prog.visibility = View.INVISIBLE
             }
             else{
@@ -121,14 +125,17 @@ class Product_Comparision : Fragment() {
                                     take_item_sum(md,bb)
                                 }
                             }
+                            heigh.setText("Heighest Revenue Product from this Brand")
                             prog.visibility = View.INVISIBLE
                         }
 
                         else{
                             prog.visibility = View.INVISIBLE
-                            if(item_deleted ==0 )
-                            Toast.makeText(activity,"Above Brand Name is not added in Sold Product",Toast.LENGTH_SHORT).show()
-                            heighest.setText("No Brand Selected")
+                            if(item_deleted ==0 ) {
+                                Toast.makeText(activity, "Above Brand Name is not added in Sold Product", Toast.LENGTH_SHORT).show()
+                                heigh.setText("")
+                                heighest.setText("")
+                            }
                             prog.visibility = View.INVISIBLE
                         }
                     }

@@ -248,7 +248,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/black"
-        android:text="Heighest Revenue Product from this Brand"
+        android:text=""
         android:textSize="20dp"/>
 
     <TextView
@@ -261,8 +261,21 @@
         android:textSize="20dp"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/green"
-        android:text="No Brand Selected"
+        android:text=""
         android:layout_marginTop="3dp"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="1dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_repeatMode="reverse"
+        android:layout_below="@id/heighest_sold_item"
+        app:lottie_colorFilter="@color/light"
+        app:lottie_rawRes="@raw/graph" />
 
     <ProgressBar
         android:id="@+id/progress_comparison"
