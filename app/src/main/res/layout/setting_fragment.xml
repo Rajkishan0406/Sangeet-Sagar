@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -33,6 +35,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:textSize="25dp"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="2"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="sans-serif-light"
                 android:text="About Owner"/>
@@ -55,6 +61,8 @@
         android:id="@+id/time"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -78,6 +86,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textSize="25dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="2"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-light"
                     android:text="Time Table"/>
@@ -100,6 +112,8 @@
         android:id="@+id/brand_collection"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -123,6 +137,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textSize="25dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="2"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-light"
                     android:text="Brand Collection"/>
@@ -146,6 +164,8 @@
         android:layout_width="match_parent"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -169,6 +189,10 @@
                     android:layout_centerVertical="true"
                     android:textSize="25dp"
                     android:layout_marginLeft="10dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="2"
                     android:fontFamily="sans-serif-light"
                     android:text="Sold Product"/>
 
@@ -191,6 +215,8 @@
         android:layout_width="match_parent"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -213,6 +239,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textSize="25dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="2"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-light"
                     android:text="Ask Developer"/>
@@ -235,6 +265,8 @@
         android:id="@+id/logout"
         android:layout_marginRight="2dp"
         android:layout_marginLeft="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -258,6 +290,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textSize="25dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="2"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-light"
                     android:text="logout"/>
@@ -281,13 +317,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:padding="1dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/setting" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerVertical="true"
             android:textAlignment="center"
-            android:textSize="18dp "
+            android:textSize="18dp"
             android:text="App Developed by Raj Kishan"/>
 
     </RelativeLayout>
