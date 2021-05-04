@@ -21,9 +21,11 @@ class Contact_Developer : Fragment() {
     lateinit var btn : CardView
     lateinit var his : CardView
     lateinit var progress : ProgressBar
+    lateinit var reply : CardView
 
     lateinit var mAuth : FirebaseAuth
     lateinit var database : DatabaseReference
+    lateinit var database2 : DatabaseReference
     var ref = 0 as Int;
 
     override fun onStart() {
@@ -41,7 +43,28 @@ class Contact_Developer : Fragment() {
         his = view.findViewById(R.id.history)
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("Message")
+        database2 = FirebaseDatabase.getInstance().getReference("Reply")
         var UserId = mAuth.currentUser?.uid
+
+        reply = view.findViewById(R.id.reply)
+
+        reply.setOnClickListener(View.OnClickListener {
+            progress.visibility = View.VISIBLE
+            database2.child("Developer").orderByValue().addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        var ans = snapshot.getValue() as String
+                        progress.visibility = View.INVISIBLE
+                        Toast.makeText(activity,""+ans,Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+        })
 
         his.setOnClickListener(View.OnClickListener {
             ref = 1;

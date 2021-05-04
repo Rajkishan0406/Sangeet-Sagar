@@ -50,7 +50,7 @@ class Sold_Product_Addition : Fragment() {
 
         card.setOnClickListener(View.OnClickListener {
                 if(brand.text.toString().length>0 && model.text.toString().length > 0 && quantity.text.toString().length > 0){
-                    prog.visibility = View.VISIBLE
+                    var str = quantity.text.toString()
                     run = 1;
                     check = 1;
                     added = 0;
@@ -119,8 +119,8 @@ class Sold_Product_Addition : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         var num = snapshot.child("Quantity").getValue() as String
-                        var t = (quantity.text.toString()).toInt()
-                        var Num: Int = num.toInt() + t
+                        var t = (quantity.text.toString().trim()).toInt()
+                        var Num: Int = Integer.parseInt(num.trim())+ t
                         Log.i("number is : ", "" + num + " & " + Num)
                         num = Num.toString()
                         Toast.makeText(activity, "Item quantity updated", Toast.LENGTH_SHORT).show()

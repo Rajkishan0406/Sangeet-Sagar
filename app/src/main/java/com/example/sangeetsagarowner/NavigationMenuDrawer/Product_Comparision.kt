@@ -162,7 +162,8 @@ class Product_Comparision : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists() && item_deleted == 0){
                     var Num = snapshot.child("Quantity").getValue() as String
-                    var num = Num.toInt()
+                    Log.i("Number :",""+Num.toString().trim())
+                    var num = Integer.parseInt(Num.toString().trim())
                     if(num >= max) {
                         max = num
                         ans = model
