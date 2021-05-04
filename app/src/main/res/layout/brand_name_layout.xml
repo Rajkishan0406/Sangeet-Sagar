@@ -21,11 +21,11 @@
             android:elevation="20dp"
             android:layout_marginTop="5dp"
             android:foreground="?selectableItemBackground"
-            android:layout_height="wrap_content">
+            android:layout_height="75dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
+                android:layout_height="75dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/item_layout_background"/>
 
@@ -54,9 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Amplifier"
-                android:textSize="28dp"
-                android:layout_margin="25dp"
-                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:layout_margin="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:textStyle="bold"/>
 
