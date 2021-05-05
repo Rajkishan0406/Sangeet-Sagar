@@ -55,12 +55,6 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
         recyclerview.setHasFixedSize(true)
         recyclerview.layoutManager = LinearLayoutManager(activity)
 
-
-        //toggle = ActionBarDrawerToggle(activity,drawerLayout,R.string.open,R.string.close)
-        //toggle.isDrawerIndicatorEnabled = true
-        //drawerLayout.addDrawerListener(toggle)
-        //toggle.syncState()
-
         var itemname = ArrayList<Users>()
 
         database?.addValueEventListener(object : ValueEventListener{

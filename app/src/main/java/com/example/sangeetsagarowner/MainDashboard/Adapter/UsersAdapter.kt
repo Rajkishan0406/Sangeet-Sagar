@@ -19,9 +19,9 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user : Users = userlist[position]
 
-
         holder.texting.text = user.item
-        holder.itemView.setOnClickListener(object : View.OnClickListener{
+
+        holder.card.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 Log.i("item clicked was : "," "+user.item)
                 var activity = v!!.context as AppCompatActivity
@@ -32,7 +32,20 @@ class UsersAdapter(var userlist : ArrayList<Users>) : RecyclerView.Adapter<Users
                 IDF.arguments = bun
                 activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
             }
+
         })
+        /*holder.itemView.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Log.i("item clicked was : "," "+user.item)
+                var activity = v!!.context as AppCompatActivity
+                val IDF = ItemDetailsFragment()
+                var bun : Bundle
+                bun = Bundle()
+                bun.putString("item",user.item)
+                IDF.arguments = bun
+                activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
+            }
+        })*/
         holder.itemView.setOnLongClickListener(object : View.OnLongClickListener{
             override fun onLongClick(v: View?): Boolean {
                 Log.i("item clicked was : "," "+user.item)

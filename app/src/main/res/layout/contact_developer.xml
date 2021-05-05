@@ -20,6 +20,10 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-light"
             android:paddingLeft="8dp"
+            android:shadowColor="@android:color/holo_orange_light"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="20"
             android:text="Ask The Developer"
             android:textColor="@color/red"
             android:textSize="24dp" />
@@ -68,7 +72,7 @@
             android:layout_marginBottom="7dp"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
-            app:cardElevation="19dp">
+            app:cardElevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -128,7 +132,7 @@
             android:layout_marginBottom="15dp"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
-            app:cardElevation="19dp">
+            app:cardElevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -168,7 +172,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Hitory"
+                    android:text="Your Past Message"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp" />
@@ -188,7 +192,7 @@
             android:layout_marginBottom="15dp"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
-            app:cardElevation="19dp">
+            app:cardElevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
