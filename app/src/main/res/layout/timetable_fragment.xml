@@ -266,6 +266,11 @@
         android:elevation="28dp"
         app:cardCornerRadius="15dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient2"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -301,6 +306,7 @@
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
+        android:id="@+id/linear_layout_time_table"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/timing"
@@ -309,6 +315,34 @@
         android:layout_marginLeft="108dp"
         android:layout_marginRight="108dp"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/closed_animation"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:padding="1dp"
+        android:layout_below="@+id/linear_layout_time_table"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="invisible"
+        app:lottie_rawRes="@raw/closed" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/open_animation"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:padding="1dp"
+        android:layout_below="@+id/linear_layout_time_table"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="invisible"
+        app:lottie_rawRes="@raw/open" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
@@ -319,6 +353,12 @@
         android:elevation="28dp"
         android:layout_alignParentRight="true"
         app:cardCornerRadius="15dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient1"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -422,5 +462,6 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/update_Timing"
         android:layout_marginBottom="50dp"/>
+
 
 </RelativeLayout>

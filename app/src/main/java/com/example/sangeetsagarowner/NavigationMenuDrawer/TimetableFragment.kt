@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.R
 import com.google.firebase.database.*
 import org.w3c.dom.Text
@@ -26,6 +27,8 @@ class TimetableFragment :Fragment(){
     lateinit var status : TextView
     lateinit var status_card : CardView
     lateinit var progress : ProgressBar
+    lateinit var open : LottieAnimationView
+    lateinit var close : LottieAnimationView
 
 
     lateinit var sun_card : CardView
@@ -62,6 +65,8 @@ class TimetableFragment :Fragment(){
         status = view.findViewById(R.id.status)
         status_card = view.findViewById(R.id.open_cardview)
         progress = view.findViewById(R.id.progress_bar_time)
+        open = view.findViewById(R.id.open_animation)
+        close = view.findViewById(R.id.closed_animation)
 
         //all cardview declaration
         sun_card = view.findViewById(R.id.sunday)
@@ -262,10 +267,14 @@ class TimetableFragment :Fragment(){
                     {
                            status_card.setCardBackgroundColor(Color.RED)
                            status.setText("Close")
+                           close.visibility = View.VISIBLE
+                           open.visibility = View.INVISIBLE
                     }
                     else{
                         status_card.setCardBackgroundColor(Color.GREEN)
                         status.setText("Open")
+                        open.visibility = View.VISIBLE
+                        close.visibility = View.INVISIBLE
                     }
                     progress.visibility = View.INVISIBLE
                 }
