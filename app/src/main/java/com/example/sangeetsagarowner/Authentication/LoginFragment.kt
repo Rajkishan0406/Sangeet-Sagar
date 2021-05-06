@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.sangeetsagarowner.Customer.CustomerActivity
 import com.example.sangeetsagarowner.MainDashboard.Dashboard
 import com.example.sangeetsagarowner.R
 import com.google.firebase.auth.FirebaseAuth
@@ -93,7 +94,7 @@ class LoginFragment : Fragment(){
                     if (task.isSuccessful) {
                         progress.visibility = View.INVISIBLE
                         Toast.makeText(activity, "Sign in Successfull", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(getActivity(), Dashboard::class.java)
+                        val intent = Intent(getActivity(), CustomerActivity::class.java)
                         getActivity()?.startActivity(intent)
                     } else {
                         progress.visibility = View.INVISIBLE
