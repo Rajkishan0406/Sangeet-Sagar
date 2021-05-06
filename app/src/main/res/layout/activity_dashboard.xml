@@ -11,24 +11,75 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/teal_200"
-        android:layout_margin="2dp">
+        app:cardElevation="15dp"
+        app:cardBackgroundColor="@color/teal_200">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient1"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sangeet Sagar"
-            android:textSize="25dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            />
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_marginLeft="15dp"
+               android:layout_centerVertical="true"
+               >
+
+               <TextView
+                   android:id="@+id/S"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="S"
+                   android:textSize="22dp"
+                   android:textColor="@color/red"
+                   android:fontFamily="sans-serif-condensed-light"
+                   android:textStyle="bold"
+                   android:layout_centerVertical="true"
+                   />
+
+            <TextView
+                android:id="@+id/angeet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="angeet "
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                />
+
+               <TextView
+                   android:id="@+id/SS"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="S"
+                   android:textSize="22dp"
+                   android:textColor="@color/red"
+                   android:fontFamily="sans-serif-condensed-light"
+                   android:textStyle="bold"
+                   android:layout_centerVertical="true"
+                   />
+
+               <TextView
+                   android:id="@+id/agar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="agar"
+                   android:textSize="20dp"
+                   android:textColor="@color/white"
+                   android:fontFamily="sans-serif-condensed-light"
+                   android:textStyle="bold"
+                   android:layout_centerVertical="true"
+                   />
+
+           </LinearLayout>
 
         </RelativeLayout>
 
