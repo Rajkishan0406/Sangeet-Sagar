@@ -2,156 +2,182 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light"
+    android:layout_marginTop="-3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/about_lottie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="7dp"
-        android:elevation="15dp"
-        app:cardCornerRadius="8dp"
-        android:layout_below="@id/forth">
+        android:layout_height="300dp"
+        android:padding="1dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_colorFilter="@color/teal_200"
+        app:lottie_repeatCount="1"
+        app:lottie_rawRes="@raw/dashboard_blue_animation" />
 
-   <ImageView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_below="@id/forth"
-       android:scaleType="fitXY"
-       android:src="@drawable/item_layout_background"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:cardElevation="35dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="60dp"
+        app:cardCornerRadius="100dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_image"/>
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/owner_card"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_margin="2dp"
-        android:elevation="15dp"
-        app:cardCornerRadius="5dp">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/about_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:background="@color/red"
+        >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="center"
-            android:src="@drawable/item_layout_background"/>
+            android:src="@drawable/gradient1"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/about_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="-30dp"
+        android:layout_below="@id/about_lottie"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Rajnish Prasad Choudhary"
+        android:textSize="20dp"/>
+
+
+    <TextView
+        android:layout_below="@id/about_name"
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:text="Owner of Sangeet Sagar since 1990"
+        android:layout_marginRight="4dp"
+        android:layout_alignParentRight="true"
+        android:textStyle="italic"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_below="@id/about_name"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="20dp"
+        android:layout_height="230dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="110dp"
-                android:layout_height="140dp"
-                app:cardBackgroundColor="@color/shadow"
-                android:layout_alignParentBottom="true"
-                app:cardCornerRadius="10dp"
-                android:layout_margin="10dp">
-
-            <ImageView
-                android:id="@+id/owner_image"
-                android:layout_width="110dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="-3dp"
-                android:scaleType="fitXY"
-                android:layout_marginBottom="0dp"
-                android:src="@drawable/profile_image"/>
-
-            </androidx.cardview.widget.CardView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="1dp"
-                android:layout_height="28dp"
-                android:layout_centerVertical="true"
-                android:background="@color/red"
-                android:layout_toLeftOf="@+id/owner_name"/>
+                android:layout_width="2dp"
+                android:layout_height="230dp"
+                android:background="@color/light_red"/>
 
-            <TextView
-                android:id="@+id/owner_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="Rajnish Prasad Choudhary"
-                android:textSize="22dp"
-                android:layout_centerVertical="true"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginLeft="12dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/gradient1"/>
+
+    <TextView
+        android:id="@+id/para_1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:text="Sangeet Sanagr is an electronic for PUBLIC ADDRESS SOUND systems,
+shop stared around 1985 and now become one of the oldest and trusted electrnic shop in Motijheel."
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/para_2"
+        android:layout_marginLeft="8dp"
+        android:layout_below="@id/para_1"
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shop is stared by late MR. TAKESHWAR PRASAD CHOUDHARY (Father of Rajnish Prasad Choudhary)."/>
+
+    <TextView
+        android:id="@+id/para_3"
+        android:layout_below="@id/para_2"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Shop contain all differnt types of mike, amplifier, speaker and lots more. We provide product to Mall, theatre, Station and almost all
+government and private school. We provide trusted and branded product for long lasting perfromance, and sell at as low price as possible
+ without any other consession (fixed price)."/>
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="@color/red"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="22dp"/>
 
-    <TextView
-        android:id="@+id/first_text"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/owner_card"
-        android:layout_marginTop="18dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Sangeet Sagar is located in Muzaffarpur. Sangeet Sagar is working in Electronic stores, Shopping, Household appliances and goods activities."
-        android:textSize="18dp"
-        android:textStyle="bold"/>
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="5dp"
+        android:layout_height="50dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient1"/>
 
-
-    <TextView
-        android:id="@+id/second_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="AHUJA RADIOS is today India’s leading manufacturer and
-exporter of Public Address Equipment. Established in 1940,
-in last 8 decades we have been able to cement AHUJA as the most trusted
-brand in sound reinforcement industry by introducing reliable products through
-continuous research and development. Right since the inception company has
-aspired and worked diligently towards offering wide range of products to fulfill every
-conceivable PA application requirement."
-        android:layout_below="@+id/first_text"/>
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/address"
+        android:id="@+id/para_4"
+        android:layout_above="@id/para_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="8dp"
-        android:text="ADDRESS:"
-        android:textStyle="bold"
-        android:layout_below="@id/second_text"
-        android:textColor="@color/black"
-        />
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:textColor="@color/green"
+        android:layout_marginTop="8dp"
+        android:text="Address : Opposite of Ranjit hotel, Motijheel"/>
 
     <TextView
-        android:id="@+id/third_text"
+        android:id="@+id/para_5"
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/address"
-        android:layout_below="@id/second_text"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="3dp"
-        android:text="Opposite Ranjit Hotel, Motijheel,"/>
+        android:textColor="@color/green"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="70dp"
+        android:textSize="16dp"
+        android:layout_marginBottom="5dp"
+        android:text="Muzaffarpur, Bihar (842001)"/>
 
-    <TextView
-        android:id="@+id/forth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/address"
-        android:layout_below="@id/third_text"
-        android:text="Muzafarpur, 842001 (BIHAR)"
-        android:layout_marginLeft="3dp"/>
-
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.sangeetsagarowner.Customer.CSetting
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.sangeetsagarowner.MainDashboard.About_Owner
 import com.example.sangeetsagarowner.NavigationMenuDrawer.TimetableFragment
 import com.example.sangeetsagarowner.R
 import com.google.firebase.auth.FirebaseAuth
+import java.net.URL
 
 class CSettingDashboard : Fragment() {
 
@@ -52,7 +54,13 @@ class CSettingDashboard : Fragment() {
         })
 
         share.setOnClickListener(View.OnClickListener {
-            //share through whatsapp facebook instagram..
+            var message : String = "rajkishan101@gmail.com"
+            var intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+            intent.type = "text/plain"
+
+            startActivity(Intent.createChooser(intent, "Share through :"))
         })
 
         return view;
