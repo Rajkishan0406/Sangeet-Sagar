@@ -27,6 +27,7 @@ class LoginFragment : Fragment(){
     lateinit var btn : CardView
     lateinit var mAuth : FirebaseAuth
     lateinit var progress : ProgressBar
+    lateinit var customer : CardView
 
     public override fun onStart() {
         super.onStart()
@@ -63,6 +64,12 @@ class LoginFragment : Fragment(){
         email = view.findViewById(R.id.password)
         btn = view.findViewById(R.id.cardview_button)
         progress = view.findViewById(R.id.login_progress_bar)
+        customer = view.findViewById(R.id.customer)
+
+        customer.setOnClickListener(View.OnClickListener {
+            val intent = Intent(getActivity(), CustomerActivity::class.java)
+            getActivity()?.startActivity(intent)
+        })
 
         btn.setOnClickListener(View.OnClickListener {
             var E = email.text.toString();
@@ -94,7 +101,7 @@ class LoginFragment : Fragment(){
                     if (task.isSuccessful) {
                         progress.visibility = View.INVISIBLE
                         Toast.makeText(activity, "Sign in Successfull", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(getActivity(), CustomerActivity::class.java)
+                        val intent = Intent(getActivity(), Dashboard::class.java)
                         getActivity()?.startActivity(intent)
                     } else {
                         progress.visibility = View.INVISIBLE

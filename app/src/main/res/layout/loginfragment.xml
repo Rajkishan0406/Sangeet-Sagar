@@ -16,11 +16,43 @@
         android:layout_marginBottom="-8dp"
         android:scaleType="centerCrop"/>
 
-    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/customer"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_cardview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient1"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continue As Customer"
+                android:textAlignment="center"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/login_cardview"
         android:layout_width="350dp"
+        android:layout_marginTop="50dp"
         android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -22,8 +22,6 @@ class CSettingDashboard : Fragment() {
     lateinit var brand : CardView
     lateinit var share : CardView
 
-
-
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()

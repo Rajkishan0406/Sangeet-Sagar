@@ -14,8 +14,7 @@
         android:theme="@style/Theme.SangeetSagarOwner">
         <activity android:name=".Customer.CustomerActivity"></activity>
         <activity android:name=".MainDashboard.Dashboard" />
-        <activity android:name=".Authentication.AuthenticationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Authentication.AuthenticationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
