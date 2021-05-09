@@ -3,6 +3,7 @@ package com.example.sangeetsagarowner
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +16,15 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.sangeetsagarowner.Authentication.AuthenticationActivity
 import com.example.sangeetsagarowner.Authentication.ForgotPassword
 import com.example.sangeetsagarowner.Authentication.LoginFragment
+import com.example.sangeetsagarowner.MainDashboard.Dashboard
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashFragment : Fragment() {
 
     lateinit var logo: ImageView
     lateinit var text: TextView
+    lateinit var auth : FirebaseAuth
+
 
     override fun onStop() {
         super.onStop()
@@ -36,6 +41,9 @@ class SplashFragment : Fragment() {
 
         logo = view.findViewById(R.id.logo_front)
         text = view.findViewById(R.id.text_front)
+        auth = FirebaseAuth.getInstance()
+
+
 
         logo.animate().apply {
             duration = 2000
@@ -48,7 +56,14 @@ class SplashFragment : Fragment() {
         text.startAnimation(animation)
 
         Handler().postDelayed({
-            setFragment(LoginFragment())
+            val currentUser = auth.currentUser
+            if(currentUser != null){
+                Log.i("here : ","It runs...")
+                val intent = Intent(getActivity(), Dashboard::class.java)
+                getActivity()?.startActivity(intent)
+            }
+            else
+                setFragment(LoginFragment())
         }, 3000)
 
         return view

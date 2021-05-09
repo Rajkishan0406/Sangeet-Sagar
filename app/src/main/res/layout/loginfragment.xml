@@ -19,7 +19,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/customer"
         android:layout_width="350dp"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
         android:foreground="?android:attr/selectableItemBackground"
@@ -36,11 +36,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Continue As Customer"
                 android:textAlignment="center"
                 android:textSize="18dp" />

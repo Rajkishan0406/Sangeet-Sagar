@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.MainDashboard.About_Owner
 import com.example.sangeetsagarowner.NavigationMenuDrawer.TimetableFragment
 import com.example.sangeetsagarowner.R
@@ -21,6 +23,7 @@ class CSettingDashboard : Fragment() {
     lateinit var time : CardView
     lateinit var brand : CardView
     lateinit var share : CardView
+    lateinit var lot : LottieAnimationView
 
     override fun onStart() {
         super.onStart()
@@ -37,6 +40,11 @@ class CSettingDashboard : Fragment() {
         time = view.findViewById(R.id.c_time)
         brand = view.findViewById(R.id.c_brand_collection)
         share = view.findViewById(R.id.c_share)
+        lot = view.findViewById(R.id.cabout_lottie)
+
+        //Animation
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_r_l)
+        lot.startAnimation(animation)
 
 
         owner.setOnClickListener(View.OnClickListener {

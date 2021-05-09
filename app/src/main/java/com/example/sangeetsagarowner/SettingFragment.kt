@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.Authentication.AuthenticationActivity
 import com.example.sangeetsagarowner.MainDashboard.About_Owner
 import com.example.sangeetsagarowner.MainDashboard.Brand_Name
@@ -25,6 +27,7 @@ class SettingFragment : Fragment() {
     lateinit var logout : CardView
     lateinit var sold_pro : CardView
     lateinit var mAuth : FirebaseAuth
+    lateinit var lot : LottieAnimationView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -38,6 +41,11 @@ class SettingFragment : Fragment() {
         sold_pro = view.findViewById(R.id.sold_product)
         brand = view.findViewById(R.id.brand_collection)
         logout = view.findViewById(R.id.logout)
+        lot = view.findViewById(R.id.lottie_setting)
+
+        //Animation
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_r_l)
+        lot.startAnimation(animation)
 
         mAuth = FirebaseAuth.getInstance()
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,11 +24,28 @@ import com.google.android.material.navigation.NavigationView
 
 class Dashboard : AppCompatActivity() {
 
+    lateinit var s :TextView
+    lateinit var ss : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
+            s = findViewById(R.id.S)
+            ss = findViewById(R.id.SS)
+
+        s.animate().apply {
+            duration = 1400
+            rotationXBy(360f)
+            rotationYBy(360f)
+        }.start()
+
+        ss.animate().apply {
+            duration = 1400
+            rotationXBy(360f)
+            rotationYBy(360f)
+        }.start()
 
             setFragment(DashboardFragment())
 

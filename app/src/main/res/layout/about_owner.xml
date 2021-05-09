@@ -78,6 +78,7 @@
         android:layout_height="wrap_content"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/about_one"
         android:layout_width="match_parent"
         android:layout_below="@id/about_name"
         android:layout_marginTop="22dp"
@@ -138,6 +139,7 @@ government and private school. We provide trusted and branded product for long l
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/about_two"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_margin="5dp"
