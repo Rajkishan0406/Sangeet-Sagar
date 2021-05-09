@@ -69,6 +69,7 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
                     progress.visibility = View.INVISIBLE
                     val adapter = UsersAdapter(itemname)
                     recyclerview.adapter = adapter
+                    recyclerview.startLayoutAnimation()
                 }
             }
 

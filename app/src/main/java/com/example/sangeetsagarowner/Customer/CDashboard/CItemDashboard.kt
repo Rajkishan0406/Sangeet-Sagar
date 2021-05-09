@@ -63,6 +63,7 @@ class CItemDashboard : Fragment(), NavigationView.OnNavigationItemSelectedListen
                     progress.visibility = View.INVISIBLE
                     val adapter = ItemAdapter(itemname)
                     recyclerview.adapter = adapter
+                    recyclerview.startLayoutAnimation()
                 }
             }
             override fun onCancelled(error: DatabaseError) {

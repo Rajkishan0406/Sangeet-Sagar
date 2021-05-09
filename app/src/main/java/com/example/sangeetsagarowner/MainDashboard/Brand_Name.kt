@@ -61,6 +61,7 @@ class Brand_Name : Fragment() {
                     progress.visibility = View.INVISIBLE
                     val adapter = Brand_Adapter(itemname)
                     recyclerView.adapter = adapter
+                    recyclerView.startLayoutAnimation()
                 }
                 else{
                     progress.visibility = View.INVISIBLE

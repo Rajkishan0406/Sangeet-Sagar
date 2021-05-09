@@ -55,6 +55,7 @@ class CBrand : Fragment() {
                     progress.visibility = View.INVISIBLE
                     val adapter = CBrand_Adapter(itemname)
                     recyclerView.adapter = adapter
+                    recyclerView.startLayoutAnimation()
                 }
                 else{
                     progress.visibility = View.INVISIBLE

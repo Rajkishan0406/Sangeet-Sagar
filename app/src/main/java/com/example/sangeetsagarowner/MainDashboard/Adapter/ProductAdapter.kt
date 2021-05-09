@@ -17,7 +17,7 @@ import com.example.sangeetsagarowner.R
 
 class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-
+    var last = -1 as Int
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_description_layout,parent,false)
@@ -29,6 +29,7 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
 
         holder.mod.text = product.item_name
         holder.price.text = product.item_price
+
 
         holder.model.text = product.item_model
         if(product.item_availability.toString().equals("1"))
