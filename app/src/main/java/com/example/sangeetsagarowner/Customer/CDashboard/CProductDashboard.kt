@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.R
 
 class CProductDashboard : Fragment() {
 
     lateinit var bun : Bundle
+    lateinit var emp : LottieAnimationView
 
     override fun onStart() {
         super.onStart()

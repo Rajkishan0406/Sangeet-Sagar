@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.MainDashboard.Adapter.ProductAdapter
 import com.example.sangeetsagarowner.MainDashboard.Model.ProductModel
 import com.example.sangeetsagarowner.R
@@ -26,6 +28,7 @@ class ItemDetailsFragment :Fragment(){
     lateinit var database : DatabaseReference
     lateinit var recyclerview : RecyclerView
     lateinit var progress : ProgressBar
+    lateinit var emp : LottieAnimationView
 
     override fun onStart() {
         super.onStart()
@@ -53,6 +56,7 @@ class ItemDetailsFragment :Fragment(){
 
         progress = view.findViewById(R.id.product_progressbar)
         database = FirebaseDatabase.getInstance().getReference("Products")
+        emp = view.findViewById(R.id.item_empty)
 
         recyclerview = view.findViewById(R.id.product_recyclerview)
         recyclerview.setHasFixedSize(true)
@@ -64,6 +68,7 @@ class ItemDetailsFragment :Fragment(){
             database.child(name.toString())?.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot!!.exists()){
+                        emp.visibility = View.INVISIBLE
                         itemname.clear()
                         for( h in snapshot.children){
                             val model_name = h.child("Model").getValue() as? String
@@ -76,6 +81,9 @@ class ItemDetailsFragment :Fragment(){
                         val adapter = ProductAdapter(itemname)
                         recyclerview.adapter = adapter
                         recyclerview.startLayoutAnimation()
+                    }
+                    else{
+                        emp.visibility = View.VISIBLE
                     }
                     progress.visibility = View.INVISIBLE
                 }

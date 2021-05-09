@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.Customer.CDashboard.Adapter.CBrand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Adapter.Brand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Add_Brand_Name
@@ -23,6 +24,7 @@ class CBrand : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var progress : ProgressBar
     lateinit var database : DatabaseReference
+    lateinit var emp : LottieAnimationView
 
     override fun onStart() {
         super.onStart()
@@ -41,12 +43,14 @@ class CBrand : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         progress = view.findViewById(R.id.brand_progressbar)
+        emp = view.findViewById(R.id.cbrand_empty)
 
         var itemname = ArrayList<Brand_Model>()
 
         database?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot!!.exists()){
+                    emp.visibility = View.INVISIBLE
                     itemname.clear()
                     for( h in snapshot.children){
                         val name = h.getValue()
@@ -58,8 +62,9 @@ class CBrand : Fragment() {
                     recyclerView.startLayoutAnimation()
                 }
                 else{
-                    progress.visibility = View.INVISIBLE
+                    emp.visibility = View.VISIBLE
                 }
+                progress.visibility = View.INVISIBLE
             }
 
             override fun onCancelled(error: DatabaseError) {

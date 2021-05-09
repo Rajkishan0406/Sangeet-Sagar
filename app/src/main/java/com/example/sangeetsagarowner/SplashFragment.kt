@@ -25,6 +25,10 @@ class SplashFragment : Fragment() {
     lateinit var text: TextView
     lateinit var auth : FirebaseAuth
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
 
     override fun onStop() {
         super.onStop()

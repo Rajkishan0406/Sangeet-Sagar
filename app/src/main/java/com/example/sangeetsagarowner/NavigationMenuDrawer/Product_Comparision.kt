@@ -5,12 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.cardview.widget.CardView
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.example.sangeetsagarowner.MainDashboard.Model.Brand_Model
 import com.example.sangeetsagarowner.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.*
@@ -50,6 +50,7 @@ class Product_Comparision : Fragment() {
         prog = view.findViewById(R.id.progress_comparison)
         database = FirebaseDatabase.getInstance().getReference("Selling_Details")
 
+
         item_sum = view.findViewById(R.id.sold_textview_answer)
         Brand_sum = view.findViewById(R.id.sold_brand_textview_answer)
         heighest = view.findViewById(R.id.heighest_sold_item)
@@ -57,6 +58,8 @@ class Product_Comparision : Fragment() {
 
         reset_prod.visibility = View.INVISIBLE
         reset_brand.visibility = View.INVISIBLE
+
+
 
         reset_prod.setOnClickListener(View.OnClickListener {
             var bb = brand.text.toString()
