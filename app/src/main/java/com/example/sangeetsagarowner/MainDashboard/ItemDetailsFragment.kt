@@ -6,9 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,8 +20,13 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.sangeetsagarowner.MainDashboard.Adapter.ProductAdapter
 import com.example.sangeetsagarowner.MainDashboard.Model.ProductModel
 import com.example.sangeetsagarowner.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class ItemDetailsFragment :Fragment(){
 
@@ -26,9 +34,13 @@ class ItemDetailsFragment :Fragment(){
     lateinit var new_prod : New_Product_Addition
     lateinit var bun : Bundle
     lateinit var database : DatabaseReference
+    lateinit var storage : StorageReference
     lateinit var recyclerview : RecyclerView
     lateinit var progress : ProgressBar
     lateinit var emp : LottieAnimationView
+    lateinit var No : CardView
+    lateinit var Yes : CardView
+    lateinit var delete : CardView
 
     override fun onStart() {
         super.onStart()
@@ -57,6 +69,63 @@ class ItemDetailsFragment :Fragment(){
         progress = view.findViewById(R.id.product_progressbar)
         database = FirebaseDatabase.getInstance().getReference("Products")
         emp = view.findViewById(R.id.item_empty)
+        delete = view.findViewById(R.id.delete_item_ask)
+        Yes = view.findViewById(R.id.yes)
+        No = view.findViewById(R.id.no)
+        storage = name?.let { FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(it) }!!
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_d_u)
+        delete.startAnimation(animation)
+
+        No.setOnClickListener(View.OnClickListener {
+            delete.visibility = View.INVISIBLE
+        })
+
+        Yes.setOnClickListener(View.OnClickListener {
+            MaterialAlertDialogBuilder(this.requireContext())
+                    .setTitle("Alert")
+                    .setMessage("This Action will deleted all the product in this section/Item")
+                    .setNegativeButton("Cancel") { dialog, which ->
+                        Log.i("Message : ", "Canceled")
+                    }
+                    .setPositiveButton("Delete") { dialog, which ->
+                        Log.i("Message : ", "Deleted")
+                        Toast.makeText(activity,"Plaese wait few seconds!!",Toast.LENGTH_SHORT).show()
+                        if (name != null) {
+                            storage.delete().addOnCompleteListener(OnCompleteListener{
+                                database!!.child(name).removeValue()
+                                var data : DatabaseReference
+                                data = FirebaseDatabase.getInstance().getReference("list")
+                                data.orderByValue().addValueEventListener(object : ValueEventListener{
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        if(snapshot.exists()){
+                                            for(h in snapshot.children) {
+                                                var MODEL = h.key as String
+                                                var variab = h.value as String
+                                                Log.i(""+MODEL," "+variab)
+                                                // Toast.makeText(activity,""+MODEL+" & "+variab,Toast.LENGTH_SHORT).show()
+                                                if(variab.equals(name)) {
+                                                    data.child(MODEL).removeValue()
+                                                    setFragmentBack(DashboardFragment())
+                                                    Toast.makeText(activity,"Item deleted successfully",Toast.LENGTH_SHORT).show()
+                                                }
+                                            }
+                                        }
+                                    }
+                                    override fun onCancelled(error: DatabaseError) {
+                                        TODO("Not yet implemented")
+                                    }
+                                })
+
+                            }).addOnFailureListener(OnFailureListener {
+                                Log.i("Fail"," to delete image............")
+                                setFragmentBack(DashboardFragment())
+                            })
+
+                        }
+                    }
+                    .show()
+        })
 
         recyclerview = view.findViewById(R.id.product_recyclerview)
         recyclerview.setHasFixedSize(true)
@@ -119,6 +188,16 @@ class ItemDetailsFragment :Fragment(){
         }
         if (ft != null) {
             ft.addToBackStack(null).commit()
+        }
+    }
+
+    private fun setFragmentBack(forgotFragment: DashboardFragment) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.dashboard_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.commit()
         }
     }
 

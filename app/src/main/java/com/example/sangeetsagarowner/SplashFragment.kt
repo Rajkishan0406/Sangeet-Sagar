@@ -62,7 +62,6 @@ class SplashFragment : Fragment() {
         Handler().postDelayed({
             val currentUser = auth.currentUser
             if(currentUser != null){
-                Log.i("here : ","It runs...")
                 val intent = Intent(getActivity(), Dashboard::class.java)
                 getActivity()?.startActivity(intent)
             }

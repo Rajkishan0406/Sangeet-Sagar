@@ -29,6 +29,7 @@ class Dashboard : AppCompatActivity() {
     lateinit var ss : TextView
     lateinit var card : CardView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

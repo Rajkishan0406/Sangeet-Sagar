@@ -1,10 +1,13 @@
 package com.example.sangeetsagarowner.MainDashboard
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
+import com.example.sangeetsagarowner.Authentication.LoginFragment
 import com.example.sangeetsagarowner.MainDashboard.Adapter.Brand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Model.Brand_Model
 import com.example.sangeetsagarowner.R
@@ -26,6 +30,7 @@ class Brand_Name : Fragment() {
     lateinit var brand : Add_Brand_Name
     lateinit var database : DatabaseReference
     lateinit var emp : LottieAnimationView
+    var gone = 0 as Int
 
     override fun onStart() {
         super.onStart()
@@ -50,6 +55,9 @@ class Brand_Name : Fragment() {
         fb.setOnClickListener(View.OnClickListener {
             brand.show(childFragmentManager,"bottom sheet for brand")
         })
+
+
+
 
         var itemname = ArrayList<Brand_Model>()
 

@@ -28,10 +28,67 @@
         app:lottie_repeatMode="reverse"
         app:lottie_rawRes="@raw/empty" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/delete_item_ask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="Do you want to delete this Item?"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/yes"
+                android:layout_width="50dp"
+                app:cardBackgroundColor="@color/green"
+                android:layout_marginLeft="20dp"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="YES"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/no"
+                android:layout_width="50dp"
+                app:cardBackgroundColor="@color/red"
+                android:layout_marginLeft="20dp"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="NO"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="5dp"
         android:id="@+id/product_recyclerview"
         android:layoutAnimation="@anim/item_layout_animation"
         android:layout_width="match_parent"

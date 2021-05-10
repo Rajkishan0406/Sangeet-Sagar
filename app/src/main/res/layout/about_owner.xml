@@ -145,7 +145,7 @@ government and private school. We provide trusted and branded product for long l
         android:layout_margin="5dp"
         app:cardElevation="20dp"
         app:cardCornerRadius="5dp"
-        android:layout_height="50dp">
+        android:layout_height="60dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -164,7 +164,7 @@ government and private school. We provide trusted and branded product for long l
         android:layout_centerHorizontal="true"
         android:textSize="16dp"
         android:textColor="@color/green"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Address : Opposite of Ranjit hotel, Motijheel"/>
 
     <TextView
@@ -176,7 +176,7 @@ government and private school. We provide trusted and branded product for long l
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="70dp"
         android:textSize="16dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="4dp"
         android:text="Muzaffarpur, Bihar (842001)"/>
 
         </RelativeLayout>

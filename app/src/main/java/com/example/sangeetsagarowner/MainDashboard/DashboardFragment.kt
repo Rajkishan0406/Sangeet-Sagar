@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -36,8 +37,6 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
         super.onStart()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
-
-
 
 
 
@@ -71,6 +70,7 @@ class DashboardFragment : Fragment(), NavigationView.OnNavigationItemSelectedLis
                     recyclerview.adapter = adapter
                     recyclerview.startLayoutAnimation()
                 }
+                progress.visibility = View.INVISIBLE
             }
 
             override fun onCancelled(error: DatabaseError) {
