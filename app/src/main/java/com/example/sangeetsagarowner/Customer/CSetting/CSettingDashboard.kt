@@ -23,6 +23,7 @@ class CSettingDashboard : Fragment() {
     lateinit var time : CardView
     lateinit var brand : CardView
     lateinit var share : CardView
+    lateinit var fd : CardView
     lateinit var lot : LottieAnimationView
 
     override fun onStart() {
@@ -41,6 +42,7 @@ class CSettingDashboard : Fragment() {
         brand = view.findViewById(R.id.c_brand_collection)
         share = view.findViewById(R.id.c_share)
         lot = view.findViewById(R.id.cabout_lottie)
+        fd = view.findViewById(R.id.c_feedback)
 
         //Animation
         val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_r_l)
@@ -57,6 +59,10 @@ class CSettingDashboard : Fragment() {
 
         brand.setOnClickListener(View.OnClickListener {
             setCbrandSetting(CBrand())
+        })
+
+        fd.setOnClickListener(View.OnClickListener {
+            setfeedback(Feedback())
         })
 
         share.setOnClickListener(View.OnClickListener {
@@ -83,6 +89,16 @@ class CSettingDashboard : Fragment() {
     }
 
     private fun setCbrandSetting(forgotFragment: CBrand) {
+        var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
+        if (ft != null) {
+            ft.replace(R.id.Customer_dashboard_frame, forgotFragment)
+        }
+        if (ft != null) {
+            ft.addToBackStack(null).commit()
+        }
+    }
+
+    private fun setfeedback(forgotFragment: Feedback) {
         var ft: FragmentTransaction? = getFragmentManager()?.beginTransaction()
         if (ft != null) {
             ft.replace(R.id.Customer_dashboard_frame, forgotFragment)

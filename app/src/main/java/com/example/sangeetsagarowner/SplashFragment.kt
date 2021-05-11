@@ -48,7 +48,6 @@ class SplashFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
 
-
         logo.animate().apply {
             duration = 2000
             rotationXBy(360f)
@@ -65,8 +64,9 @@ class SplashFragment : Fragment() {
                 val intent = Intent(getActivity(), Dashboard::class.java)
                 getActivity()?.startActivity(intent)
             }
-            else
+            else {
                 setFragment(LoginFragment())
+            }
         }, 3000)
 
         return view

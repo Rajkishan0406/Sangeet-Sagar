@@ -1,6 +1,8 @@
 package com.example.sangeetsagarowner.MainDashboard
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
+import com.example.sangeetsagarowner.Authentication.LoginFragment
 import com.example.sangeetsagarowner.MainDashboard.Adapter.ProductAdapter
 import com.example.sangeetsagarowner.MainDashboard.Model.ProductModel
 import com.example.sangeetsagarowner.R
@@ -41,6 +44,7 @@ class ItemDetailsFragment :Fragment(){
     lateinit var No : CardView
     lateinit var Yes : CardView
     lateinit var delete : CardView
+    lateinit var token : String
 
     override fun onStart() {
         super.onStart()
@@ -74,8 +78,12 @@ class ItemDetailsFragment :Fragment(){
         No = view.findViewById(R.id.no)
         storage = name?.let { FirebaseStorage.getInstance().reference.child("images/pic.jpg").child(it) }!!
 
-        val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_d_u)
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_gone_up)
         delete.startAnimation(animation)
+
+        Handler().postDelayed({
+            delete.visibility = View.INVISIBLE
+        }, 3000)
 
         No.setOnClickListener(View.OnClickListener {
             delete.visibility = View.INVISIBLE
@@ -144,7 +152,8 @@ class ItemDetailsFragment :Fragment(){
                             val model_price = "Price " + h.child("Price").getValue() as? String
                             val model_brand = h.child("Brand").getValue() as? String
                             val model_available = h.child("Availability").getValue() as? String
-                            itemname.add(ProductModel(model_name,model_price, model_brand, model_available))
+                            val t = h.child("Token").getValue() as? String
+                            itemname.add(ProductModel(model_name,model_price, model_brand, model_available,t))
                         }
                         progress.visibility = View.INVISIBLE
                         val adapter = ProductAdapter(itemname)

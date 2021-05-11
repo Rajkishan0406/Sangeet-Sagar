@@ -30,15 +30,23 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/delete_item_ask"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_width="match_parent"
+        app:cardCornerRadius="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            android:layout_centerHorizontal="true"
             android:orientation="horizontal">
 
         <TextView
@@ -85,6 +93,8 @@
 
         </LinearLayout>
 
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 
@@ -92,6 +102,7 @@
         android:id="@+id/product_recyclerview"
         android:layoutAnimation="@anim/item_layout_animation"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="match_parent"/>
 
 

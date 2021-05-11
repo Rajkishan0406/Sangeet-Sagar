@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sangeetsagarowner.MainDashboard.ItemFullDescription
 import com.example.sangeetsagarowner.MainDashboard.Model.ProductModel
 import com.example.sangeetsagarowner.R
+import com.squareup.picasso.Picasso
 
 class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
@@ -29,6 +30,7 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
 
         holder.mod.text = product.item_name
         holder.price.text = product.item_price
+        Picasso.get().load(product.Imagetoken).into(holder.image)
 
 
         holder.model.text = product.item_model

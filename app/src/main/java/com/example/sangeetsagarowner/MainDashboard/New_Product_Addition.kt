@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
-import com.google.android.gms.tasks.Continuation
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.StorageTask
-import com.google.firebase.storage.UploadTask
 
 
 @Suppress("UNREACHABLE_CODE")
@@ -188,7 +184,7 @@ class New_Product_Addition : Fragment(){
                                                 .child(
                                                     key
                                                 ).child(name.text.toString())
-                                        storeimage()
+                                        storeimage(key, Name)
                                         checker = -1
                                     }
                                 }
@@ -243,7 +239,7 @@ class New_Product_Addition : Fragment(){
                                                 .child(
                                                     key
                                                 ).child(name.text.toString())
-                                        storeimage()
+                                        storeimage(key,Name)
                                         checker = -1
                                     }
                                 }
@@ -257,10 +253,20 @@ class New_Product_Addition : Fragment(){
         return view
     }
 
-    private fun storeimage() {
+    private fun storeimage(key: String, Name: Editable) {
         imageUri?.let {
             storage.putFile(it).addOnSuccessListener {
-                Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Product stored successfully ", Toast.LENGTH_SHORT).show()
+                storage.downloadUrl.addOnSuccessListener {
+                    Log.i("message : "," "+it)
+                    var k = "" as String
+                    var r = "" as String
+                    r = it.toString()
+                    Log.i("Toekn : "," "+r)
+                    var data: DatabaseReference
+                    data = FirebaseDatabase.getInstance().getReference("Products")
+                    data.child(key).child(Name.toString()).child("Token").setValue(r)
+                }
                 checker = -1
                 progress.visibility = View.INVISIBLE
                     Log.i("image upload : ", "Successfull")

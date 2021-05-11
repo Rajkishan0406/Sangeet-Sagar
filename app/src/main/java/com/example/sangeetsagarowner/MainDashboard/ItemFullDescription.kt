@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
+import android.net.UrlQuerySanitizer
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
@@ -27,6 +28,7 @@ import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso;
 import org.w3c.dom.Text
 import java.net.URI
+import java.net.URL
 
 class ItemFullDescription :Fragment(){
 
@@ -46,6 +48,7 @@ class ItemFullDescription :Fragment(){
     lateinit var delete : CardView
     lateinit var edit : CardView
     lateinit var model_name : String
+    lateinit var token : String
 
     lateinit var sharedPreferences: SharedPreferences
     lateinit var database : DatabaseReference
@@ -99,14 +102,15 @@ class ItemFullDescription :Fragment(){
                     brand?.setText(snapshot.child("Brand").getValue() as String)
                     power?.setText(snapshot.child("Power").getValue() as String)
                     about?.setText(snapshot.child("Describe").getValue() as String)
+                    token = snapshot.child("Token").getValue() as String
+                    Picasso.get().load(token).into(image)
                     var checker = snapshot.child("Availability").getValue() as String
                     if(checker.equals("0")){
                         card.setCardBackgroundColor(Color.RED)
                         avatext.setText("Not Available")
                     }
-                    progress.visibility = View.INVISIBLE
-                    //storage
                 }
+                progress.visibility = View.INVISIBLE
             }
 
             override fun onCancelled(error: DatabaseError) {
