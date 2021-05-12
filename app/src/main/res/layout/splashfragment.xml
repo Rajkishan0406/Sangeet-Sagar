@@ -29,7 +29,7 @@
         android:text="Sangeet Sagar"
         android:textAlignment="center"
         android:textColor="@color/light_red"
-        android:textSize="20dp"
+        android:textSize="24dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_front"/>

@@ -49,7 +49,7 @@ class SplashFragment : Fragment() {
 
 
         logo.animate().apply {
-            duration = 2000
+            duration = 1700
             rotationXBy(360f)
             rotationYBy(360f)
         }.start()
@@ -67,7 +67,7 @@ class SplashFragment : Fragment() {
             else {
                 setFragment(LoginFragment())
             }
-        }, 3000)
+        }, 2500)
 
         return view
     }
