@@ -3,17 +3,13 @@ package com.example.sangeetsagarowner.Customer.CDashboard.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sangeetsagarowner.MainDashboard.Adapter.Brand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Model.Brand_Model
 import com.example.sangeetsagarowner.R
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
-class CBrand_Adapter(var brandlist : ArrayList<Brand_Model>) : RecyclerView.Adapter<CBrand_Adapter.ViewHolder>() {
+class C_Brand_Adapter(var brandlist : ArrayList<Brand_Model>) : RecyclerView.Adapter<C_Brand_Adapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

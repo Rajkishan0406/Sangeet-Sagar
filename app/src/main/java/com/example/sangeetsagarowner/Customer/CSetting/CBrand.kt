@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
-import com.example.sangeetsagarowner.Customer.CDashboard.Adapter.CBrand_Adapter
+import com.example.sangeetsagarowner.Customer.CDashboard.Adapter.C_Brand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Adapter.Brand_Adapter
 import com.example.sangeetsagarowner.MainDashboard.Add_Brand_Name
 import com.example.sangeetsagarowner.MainDashboard.Model.Brand_Model
@@ -57,7 +57,7 @@ class CBrand : Fragment() {
                         itemname.add(Brand_Model(name as String))
                     }
                     progress.visibility = View.INVISIBLE
-                    val adapter = CBrand_Adapter(itemname)
+                    val adapter = C_Brand_Adapter(itemname)
                     recyclerView.adapter = adapter
                     recyclerView.startLayoutAnimation()
                 }

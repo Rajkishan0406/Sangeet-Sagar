@@ -165,6 +165,9 @@ class ItemDetailsFragment :Fragment(){
                         recyclerview.startLayoutAnimation()
                     }
                     else{
+                        itemname.clear()
+                        val adapter = ProductAdapter(itemname)
+                        recyclerview.adapter = adapter
                         emp.visibility = View.VISIBLE
                     }
                     progress.visibility = View.INVISIBLE
