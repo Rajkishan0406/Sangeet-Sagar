@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -42,6 +44,8 @@ class New_Product_Addition : Fragment(){
     lateinit var bun : Bundle
     var checker = 0
     lateinit var storage : StorageReference
+    lateinit var storage_deletion : StorageReference
+    var image_added = 0
 
     lateinit var database : DatabaseReference
 
@@ -184,6 +188,7 @@ class New_Product_Addition : Fragment(){
                                                 .child(
                                                     key
                                                 ).child(name.text.toString())
+                                        deleteimgae(key,Name)
                                         storeimage(key, Name)
                                         checker = -1
                                     }
@@ -239,12 +244,14 @@ class New_Product_Addition : Fragment(){
                                                 .child(
                                                     key
                                                 ).child(name.text.toString())
+                                        deleteimgae(key,Name)
                                         storeimage(key,Name)
                                         checker = -1
                                     }
                                 }
                             }
                         }
+
                     })
                 }
             }
@@ -253,9 +260,22 @@ class New_Product_Addition : Fragment(){
         return view
     }
 
+    private fun deleteimgae(key: String, name: Editable?) {
+            storage_deletion = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
+            storage_deletion.child(key).child(name.toString())
+        if(image_added == 0) {
+            storage.delete().addOnCompleteListener(OnCompleteListener {
+                    Log.i("image : "," deleted")
+            }).addOnFailureListener(OnFailureListener {
+                Log.i("image : "," fail to delete")
+            })
+        }
+    }
+
     private fun storeimage(key: String, Name: Editable) {
         imageUri?.let {
             storage.putFile(it).addOnSuccessListener {
+                image_added = 1
                 Toast.makeText(activity, "Product stored successfully ", Toast.LENGTH_SHORT).show()
                 storage.downloadUrl.addOnSuccessListener {
                     Log.i("message : "," "+it)

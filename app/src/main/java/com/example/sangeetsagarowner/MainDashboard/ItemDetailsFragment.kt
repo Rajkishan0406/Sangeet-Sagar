@@ -115,7 +115,8 @@ class ItemDetailsFragment :Fragment(){
                                                 // Toast.makeText(activity,""+MODEL+" & "+variab,Toast.LENGTH_SHORT).show()
                                                 if(variab.equals(name)) {
                                                     data.child(MODEL).removeValue()
-                                                    setFragmentBack(DashboardFragment())
+                                                    val intent = Intent(getActivity(), Dashboard::class.java)
+                                                    getActivity()?.startActivity(intent)
                                                     Toast.makeText(activity,"Item deleted successfully",Toast.LENGTH_SHORT).show()
                                                 }
                                             }

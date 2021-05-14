@@ -2,7 +2,6 @@ package com.example.sangeetsagarowner.MainDashboard
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -21,7 +20,6 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import java.util.jar.Attributes
 
 class Edit_Product_Details : Fragment() {
 
@@ -46,6 +44,8 @@ class Edit_Product_Details : Fragment() {
 
     lateinit var database : DatabaseReference
     lateinit var storage : StorageReference
+    lateinit var storage_deletion : StorageReference
+    var image_added = 0
     lateinit var ss : StorageReference
 
     override fun onStart() {
@@ -132,10 +132,13 @@ class Edit_Product_Details : Fragment() {
                 var Describe = Des.text.toString()
                 if (Brand.isEmpty() || Price.isEmpty() || Weight.isEmpty() || Power.isEmpty() || Describe.isEmpty()
                     || check == -1 || imageUri == null
-                ) {
+                )
+                {
                     progress.visibility = View.INVISIBLE
                     Toast.makeText(activity, "Please fill all information ", Toast.LENGTH_SHORT).show()
-                } else {
+                }
+                else {
+                    Toast.makeText(activity,"Please wait few seconds for updation",Toast.LENGTH_SHORT).show()
                     progress.visibility = View.VISIBLE
                     var data: DatabaseReference
                     data = FirebaseDatabase.getInstance().getReference("Products")
@@ -156,11 +159,15 @@ class Edit_Product_Details : Fragment() {
                         data.child(first.toString()).child(second.toString()).child("Availability")
                             .setValue(check.toString())
                     }
+                    progress.visibility = View.VISIBLE
                     ss = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
                         .child(first.toString()).child(second.toString())
+             //first delete old image and replace it by new image..........
                     ss.delete().addOnCompleteListener(OnCompleteListener {
                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
-                            .child(first.toString()).child(second.toString())
+                                .child(first.toString()).child(second.toString())
+                        //deleteimgae(first.toString(),second)
+                        progress.visibility = View.VISIBLE
                         storeimage()
                         }
                     ).addOnFailureListener(OnFailureListener {
@@ -176,14 +183,18 @@ class Edit_Product_Details : Fragment() {
     }
 
 
+
+
     private fun storeimage() {
         imageUri?.let {
             storage.putFile(it).addOnSuccessListener {
-                progress.visibility = View.INVISIBLE
-                Toast.makeText(activity, "Product stored successfully", Toast.LENGTH_SHORT).show()
+                progress.visibility = View.VISIBLE
+                image_added = 1
+                Toast.makeText(activity, "Product edited successfully please restart app to see changes", Toast.LENGTH_SHORT).show()
                 progress.visibility = View.INVISIBLE
                 Log.i("image upload : ","Successfull")
-                setFragment(DashboardFragment())
+                val intent = Intent(getActivity(), Dashboard::class.java)
+                getActivity()?.startActivity(intent)
             }
                 .addOnFailureListener(){
                     progress.visibility = View.INVISIBLE
