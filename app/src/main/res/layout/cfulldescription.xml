@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/main_image"
+            android:id="@+id/cmain_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="5dp"
@@ -44,7 +44,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/cname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -79,7 +79,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/brand"
+            android:id="@+id/cbrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -114,7 +114,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/weight"
+            android:id="@+id/cweight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -149,7 +149,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/cprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -184,7 +184,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/power"
+            android:id="@+id/cpower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -219,7 +219,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/about"
+            android:id="@+id/cabout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -234,7 +234,7 @@
             android:layout_marginTop="8dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/available_cardview"
+                android:id="@+id/cavailable_cardview"
                 android:layout_width="190dp"
                 android:layout_height="32dp"
                 android:layout_centerVertical="true"
@@ -245,7 +245,7 @@
                 app:cardElevation="10dp">
 
                 <TextView
-                    android:id="@+id/ava_text"
+                    android:id="@+id/cava_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="3dp"
@@ -262,7 +262,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/progress_full"
+        android:id="@+id/cprogress_full"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"

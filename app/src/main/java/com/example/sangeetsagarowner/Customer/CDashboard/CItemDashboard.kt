@@ -24,7 +24,7 @@ import com.google.firebase.database.*
 
 class CItemDashboard : Fragment(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var fb : FloatingActionButton
+
     lateinit var database : DatabaseReference
     lateinit var recyclerview : RecyclerView
     lateinit var progress : ProgressBar

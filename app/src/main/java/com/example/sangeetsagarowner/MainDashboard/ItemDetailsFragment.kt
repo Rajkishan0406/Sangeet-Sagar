@@ -52,6 +52,7 @@ class ItemDetailsFragment :Fragment(){
     }
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -81,11 +82,7 @@ class ItemDetailsFragment :Fragment(){
         val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_gone_up)
         delete.startAnimation(animation)
 
-        Handler().postDelayed({
-            val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_gone_down)
-            delete.startAnimation(animation)
-            delete.visibility = View.INVISIBLE
-        }, 3000)
+       
 
         No.setOnClickListener(View.OnClickListener {
             val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_gone_down)

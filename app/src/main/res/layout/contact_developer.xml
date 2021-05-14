@@ -38,13 +38,14 @@
             android:id="@+id/ask_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="120dp"
             android:layout_margin="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ask_edittext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="115dp"
+                android:gravity="start"
                 android:hint="Write here" />
 
         </com.google.android.material.textfield.TextInputLayout>

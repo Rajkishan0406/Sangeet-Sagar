@@ -1,6 +1,7 @@
 package com.example.sangeetsagarowner.Customer.CDashboard
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,13 @@ class CProductDashboard : Fragment() {
         bun = this.requireArguments()
         var name : String? = bun.getString("item")
 
+        var pref = PreferenceManager.getDefaultSharedPreferences(activity)
+        pref.apply {
+            val item_father = name.toString()
+            val editor = pref.edit()
+            editor.putString("Item_Father",item_father)
+            editor.apply()
+        }
 
         progress = view.findViewById(R.id.cproduct_progressbar)
         database = FirebaseDatabase.getInstance().getReference("Products")

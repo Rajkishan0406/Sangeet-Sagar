@@ -36,6 +36,7 @@ class Edit_Product_Details : Fragment() {
     lateinit var UnAva : CardView
     lateinit var submit : CardView
     lateinit var progress : ProgressBar
+    lateinit var status : TextView
     var check = -1
     lateinit var image : ImageView
     lateinit var select : ImageView
@@ -70,6 +71,7 @@ class Edit_Product_Details : Fragment() {
         price = view.findViewById(R.id.Price_)
         wright = view.findViewById(R.id.Weight)
         power = view.findViewById(R.id.Power)
+        status = view.findViewById(R.id.edit_available_cardview_status)
         progress = view.findViewById(R.id.progress_circular_product_addition)
         Des = view.findViewById(R.id.About_Model)
         Ava = view.findViewById(R.id.available_cardview)
@@ -111,10 +113,12 @@ class Edit_Product_Details : Fragment() {
 
         Ava.setOnClickListener(View.OnClickListener {
             check = 1;
+            status.setText("Available")
         })
 
         UnAva.setOnClickListener(View.OnClickListener {
             check = 0;
+            status.setText("Unavailable")
         })
 
 
