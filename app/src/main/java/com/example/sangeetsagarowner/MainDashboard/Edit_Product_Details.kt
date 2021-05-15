@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 
 class Edit_Product_Details : Fragment() {
 
@@ -107,10 +108,11 @@ class Edit_Product_Details : Fragment() {
                     brand?.setText(snapshot.child("Brand").getValue() as String)
                     power?.setText(snapshot.child("Power").getValue() as String)
                     Des?.setText(snapshot.child("Describe").getValue() as String)
+                    var token = snapshot.child("Token").getValue() as String
+                    Picasso.get().load(token).into(image)
                     var helper = snapshot.child("Availability").getValue() as String
                     checker = 0;
                     progress.visibility = View.INVISIBLE
-                    //storage
                 }
             }
 
@@ -120,10 +122,10 @@ class Edit_Product_Details : Fragment() {
 
         })
 
-        select.setOnClickListener(View.OnClickListener {
+        /*select.setOnClickListener(View.OnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
-        })
+        })*/
 
 
         Ava.setOnClickListener(View.OnClickListener {
@@ -146,14 +148,12 @@ class Edit_Product_Details : Fragment() {
                 var Power = power.text.toString()
                 var Describe = Des.text.toString()
                 if (Brand.isEmpty() || Price.isEmpty() || Weight.isEmpty() || Power.isEmpty() || Describe.isEmpty()
-                    || check == -1 || imageUri == null
-                )
+                    || check == -1)
                 {
                     progress.visibility = View.INVISIBLE
                     Toast.makeText(activity, "Please fill all information ", Toast.LENGTH_SHORT).show()
                 }
                 else {
-                    Toast.makeText(activity,"Please wait few seconds for updation",Toast.LENGTH_SHORT).show()
                     progress.visibility = View.VISIBLE
                     var data: DatabaseReference
                     data = FirebaseDatabase.getInstance().getReference("Products")
@@ -174,22 +174,25 @@ class Edit_Product_Details : Fragment() {
                         data.child(first.toString()).child(second.toString()).child("Availability")
                             .setValue(check.toString())
                     }
+                    Toast.makeText(activity, "Product edited successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(getActivity(), Dashboard::class.java)
+                    getActivity()?.startActivity(intent)
                     progress.visibility = View.VISIBLE
-                    ss = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
+                  /*  ss = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
                         .child(first.toString()).child(second.toString())
              //first delete old image and replace it by new image..........
                     ss.delete().addOnCompleteListener(OnCompleteListener {
                         storage = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
                                 .child(first.toString()).child(second.toString())
-                        //deleteimgae(first.toString(),second)
+                        //deleteimgae(first.toString(),second)*/
                         progress.visibility = View.VISIBLE
-                        storeimage()
+                        //storeimage()
                         }
-                    ).addOnFailureListener(OnFailureListener {
+                   /* ).addOnFailureListener(OnFailureListener {
                         progress.visibility = View.INVISIBLE
                         Toast.makeText(activity,"Something went wrong with image please try again",Toast.LENGTH_SHORT).show()
                     })
-                }
+                }*/
 
             }
         })

@@ -70,6 +70,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="3dp"
+                        android:visibility="invisible"
                         android:src="@drawable/ic_baseline_add_a_photo" />
 
                 </RelativeLayout>

@@ -332,7 +332,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:padding="1dp"
-            app:lottie_repeatMode="reverse"
+            app:lottie_repeatCount="0"
             app:lottie_rawRes="@raw/setting" />
 
         <TextView
