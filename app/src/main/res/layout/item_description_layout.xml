@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="170dp"
+    android:layout_marginTop="2dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -10,28 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         app:cardCornerRadius="12dp"
+        android:layout_marginTop="3dp"
         android:foreground="?selectableItemBackground"
         android:focusable="true"
         app:cardElevation="5dp"
         android:layout_margin="5dp">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="1dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerCrop"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/background_animation"
-            app:lottie_loop="true" />
 
 
         <ImageView
-            android:id="@+id/image_background_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gradient1"/>
+            android:src="@drawable/gradient3"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_700"
+            android:alpha="0.5"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,16 +73,19 @@
                 android:text="MAX 13 CHAR"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="25dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
                     app:cardCornerRadius="5dp"
+                    android:layout_alignParentRight="true"
                     app:cardBackgroundColor="@color/teal_200"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="50dp"
                     >
                 <TextView
                     android:id="@+id/product_price"
@@ -98,6 +98,8 @@
                     android:textAlignment="textEnd"/>
 
                 </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
 
             </LinearLayout>
 

@@ -18,7 +18,7 @@
         android:layout_marginBottom="7dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        app:cardElevation="15dp"
+        app:cardElevation="10dp"
         android:layout_marginTop="5dp"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
@@ -26,14 +26,11 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="88dp"
+            android:layout_height="86dp"
             android:scaleType="centerCrop"
             android:src="@drawable/gradient1"/>
 
-        <LinearLayout
-            android:layout_width="2dp"
-            android:layout_height="85dp"
-            android:background="@color/red"/>
+
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="100dp"
@@ -48,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amplifier"
-            android:textSize="28dp"
+            android:textSize="26dp"
             android:layout_margin="25dp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-condensed"

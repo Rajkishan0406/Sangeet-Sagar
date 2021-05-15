@@ -23,7 +23,6 @@ class CSettingDashboard : Fragment() {
     lateinit var owner : CardView
     lateinit var time : CardView
     lateinit var brand : CardView
-    lateinit var share : CardView
     lateinit var fd : CardView
     lateinit var lot : LottieAnimationView
     lateinit var frame : FrameLayout
@@ -46,7 +45,6 @@ class CSettingDashboard : Fragment() {
         owner = view.findViewById(R.id.c_owner)
         time = view.findViewById(R.id.c_time)
         brand = view.findViewById(R.id.c_brand_collection)
-        share = view.findViewById(R.id.c_share)
         lot = view.findViewById(R.id.cabout_lottie)
         fd = view.findViewById(R.id.c_feedback)
 
@@ -71,15 +69,6 @@ class CSettingDashboard : Fragment() {
             setfeedback(Feedback())
         })
 
-        share.setOnClickListener(View.OnClickListener {
-            var message : String = "rajkishan101@gmail.com"
-            var intent = Intent()
-            intent.action = Intent.ACTION_SEND
-            intent.putExtra(Intent.EXTRA_TEXT, message)
-            intent.type = "text/plain"
-
-            startActivity(Intent.createChooser(intent, "Share through :"))
-        })
 
         return view;
     }
