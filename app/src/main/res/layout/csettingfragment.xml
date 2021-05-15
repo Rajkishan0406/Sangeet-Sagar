@@ -5,6 +5,16 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <FrameLayout
+        android:id="@+id/setting_frame_c"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/c_owner"
         android:layout_width="match_parent"
@@ -286,5 +296,9 @@
             android:text="App Developed by Raj Kishan"/>
 
     </RelativeLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ class CSettingDashboard : Fragment() {
     lateinit var share : CardView
     lateinit var fd : CardView
     lateinit var lot : LottieAnimationView
+    lateinit var frame : FrameLayout
 
     override fun onStart() {
         super.onStart()
@@ -36,6 +38,10 @@ class CSettingDashboard : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.csettingfragment, container, false)
+
+        frame = view.findViewById(R.id.setting_frame_c)
+        val animationx = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animationx)
 
         owner = view.findViewById(R.id.c_owner)
         time = view.findViewById(R.id.c_time)

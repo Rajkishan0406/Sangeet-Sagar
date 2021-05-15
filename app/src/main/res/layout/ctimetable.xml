@@ -6,6 +6,16 @@
     android:layout_margin="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <FrameLayout
+        android:id="@+id/time_frame_c"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
     <HorizontalScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -404,6 +414,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="100dp"/>
 
-
+        </RelativeLayout>
+    </FrameLayout>
 
 </RelativeLayout>

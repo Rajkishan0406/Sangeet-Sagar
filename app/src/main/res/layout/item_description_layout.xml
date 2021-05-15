@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="178dp"
-    android:layout_marginBottom="5dp"
+    android:layout_height="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -13,9 +12,8 @@
         app:cardCornerRadius="12dp"
         android:foreground="?selectableItemBackground"
         android:focusable="true"
-        app:cardElevation="20dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        app:cardElevation="5dp"
+        android:layout_margin="5dp">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
@@ -29,6 +27,7 @@
 
 
         <ImageView
+            android:id="@+id/image_background_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -45,6 +44,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/image_card"
                 android:layout_width="160dp"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="5dp"

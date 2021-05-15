@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,8 @@ class Brand_Name : Fragment() {
     lateinit var emp : LottieAnimationView
     var gone = 0 as Int
 
+    lateinit var frame : FrameLayout
+
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
@@ -42,6 +45,11 @@ class Brand_Name : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.brand_name,container,false)
+
+        frame = view.findViewById(R.id.brand_owner)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         fb = view.findViewById(R.id.brand_fab1)
         database = FirebaseDatabase.getInstance().getReference("Brand")

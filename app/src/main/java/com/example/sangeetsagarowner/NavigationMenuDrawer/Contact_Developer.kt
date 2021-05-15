@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +28,8 @@ class Contact_Developer : Fragment() {
     lateinit var mAuth : FirebaseAuth
     lateinit var database : DatabaseReference
     lateinit var database2 : DatabaseReference
+
+    lateinit var frame : FrameLayout
     var ref = 0 as Int;
 
     override fun onStart() {
@@ -44,6 +48,12 @@ class Contact_Developer : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("Message")
         database2 = FirebaseDatabase.getInstance().getReference("Reply")
+
+        frame = view.findViewById(R.id.contact_frame)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
+
         var UserId = mAuth.currentUser?.uid
 
         reply = view.findViewById(R.id.reply)

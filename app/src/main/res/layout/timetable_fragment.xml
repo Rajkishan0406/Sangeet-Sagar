@@ -5,6 +5,15 @@
     android:layout_margin="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <FrameLayout
+        android:id="@+id/time_table_owner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
        <HorizontalScrollView
            android:id="@+id/scroll_view"
@@ -314,7 +323,7 @@
         android:background="@color/red"
         android:layout_marginLeft="108dp"
         android:layout_marginRight="108dp"
-        />
+        android:orientation="horizontal" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/closed_animation"
@@ -462,6 +471,10 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/update_Timing"
         android:layout_marginBottom="50dp"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
 
 </RelativeLayout>

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -25,6 +27,7 @@ class CBrand : Fragment() {
     lateinit var progress : ProgressBar
     lateinit var database : DatabaseReference
     lateinit var emp : LottieAnimationView
+    lateinit var frame : FrameLayout
 
     override fun onStart() {
         super.onStart()
@@ -37,6 +40,9 @@ class CBrand : Fragment() {
             savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.cbrand, container, false)
 
+        frame = view.findViewById(R.id.frame_brand_c)
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         database = FirebaseDatabase.getInstance().getReference("Brand")
         recyclerView = view.findViewById(R.id.brand_recyclerview)

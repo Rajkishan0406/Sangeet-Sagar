@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -46,6 +48,8 @@ class TimetableFragment :Fragment(){
     lateinit var fri_text : TextView
     lateinit var sat_text : TextView
 
+    lateinit var frame : FrameLayout
+
     lateinit var database : DatabaseReference
     var present = "sunday" as String
 
@@ -59,6 +63,11 @@ class TimetableFragment :Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         var view =  inflater.inflate(R.layout.timetable_fragment,container,false)
+
+        frame = view.findViewById(R.id.time_table_owner)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         from_text = view.findViewById(R.id.time_from)
         to_text = view.findViewById(R.id.to_from)

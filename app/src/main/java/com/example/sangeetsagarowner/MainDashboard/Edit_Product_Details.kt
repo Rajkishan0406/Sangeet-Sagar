@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -47,16 +48,29 @@ class Edit_Product_Details : Fragment() {
     lateinit var storage_deletion : StorageReference
     var image_added = 0
     lateinit var ss : StorageReference
+    lateinit var frame : FrameLayout
 
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fadein)
+        //text.startAnimation(animation)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater,
                           container: ViewGroup?,
                           savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.editproductdetails,container,false)
+
+        frame = view.findViewById(R.id.edit_details)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         bun = Bundle()
         bun = this.requireArguments()
@@ -66,6 +80,7 @@ class Edit_Product_Details : Fragment() {
         model = view.findViewById(R.id.modelname)
         model.setText(second)
         Toast.makeText(activity,""+first+" "+second,Toast.LENGTH_SHORT).show()
+
 
         brand = view.findViewById(R.id.Brand_name)
         price = view.findViewById(R.id.Price_)

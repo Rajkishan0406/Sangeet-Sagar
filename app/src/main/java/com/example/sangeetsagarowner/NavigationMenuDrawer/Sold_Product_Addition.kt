@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -31,6 +33,8 @@ class Sold_Product_Addition : Fragment() {
     var run = 0;
     var added = 0
 
+    lateinit var frame : FrameLayout
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -40,6 +44,10 @@ class Sold_Product_Addition : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("Selling_Details")
+
+        frame = view.findViewById(R.id.solde_owner)
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         brand = view.findViewById(R.id.Brand_Name)
         model = view.findViewById(R.id.Model_Name)

@@ -5,6 +5,15 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <FrameLayout
+        android:id="@+id/setting_owner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/owner"
@@ -324,8 +333,6 @@
             android:layout_centerVertical="true"
             android:padding="1dp"
             app:lottie_repeatMode="reverse"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
             app:lottie_rawRes="@raw/setting" />
 
         <TextView
@@ -338,5 +345,8 @@
             android:text="App Developed by Raj Kishan"/>
 
     </RelativeLayout>
+
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

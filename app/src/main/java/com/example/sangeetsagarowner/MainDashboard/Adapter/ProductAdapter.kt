@@ -1,7 +1,9 @@
 package com.example.sangeetsagarowner.MainDashboard.Adapter
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +20,8 @@ import com.squareup.picasso.Picasso
 
 class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-    var last = -1 as Int
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_description_layout,parent,false)
@@ -27,6 +30,8 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product : ProductModel = productlist[position]
+
+        
 
         holder.mod.text = product.item_name
         holder.price.text = product.item_price
@@ -41,7 +46,8 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
             holder.cardm.setCardBackgroundColor(Color.RED);
         }
 
-        holder.itemView.setOnClickListener(object : View.OnClickListener{
+
+        holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 Log.i("clicked item name : ",""+product.item_name)
                 var activity = v!!.context as AppCompatActivity
@@ -52,8 +58,8 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
                 IDF.arguments = bun
                 activity.supportFragmentManager.beginTransaction().replace(R.id.dashboard_frame,IDF).addToBackStack(null).commit()
             }
-
         })
+
     }
 
     override fun getItemCount(): Int {
@@ -69,6 +75,8 @@ class ProductAdapter(var productlist : ArrayList<ProductModel>) : RecyclerView.A
             var image = itemView.findViewById(R.id.product_image) as ImageView
             var card = itemView.findViewById(R.id.product_cardview) as CardView
             var cardm = itemView.findViewById(R.id.prod_ava_card) as CardView
+            var im = itemView.findViewById(R.id.image_card) as CardView
+            var ava = itemView.findViewById(R.id.prod_ava_card) as CardView
     }
 
 }

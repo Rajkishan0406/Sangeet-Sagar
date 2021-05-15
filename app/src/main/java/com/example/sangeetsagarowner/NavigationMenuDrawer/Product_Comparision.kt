@@ -25,6 +25,8 @@ class Product_Comparision : Fragment() {
     lateinit var reset_prod : CardView
     lateinit var reset_brand : CardView
 
+    lateinit var frame : FrameLayout
+
     var brand_sum = 0 as Int
     var sum = 0 as Int
     var max = 0 as Int
@@ -41,6 +43,11 @@ class Product_Comparision : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.product_comparison, container, false)
+
+        frame = view.findViewById(R.id.product_comparision_owner)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         reset_prod = view.findViewById(R.id.card_reset_product)
         reset_brand = view.findViewById(R.id.card_reset_brand)

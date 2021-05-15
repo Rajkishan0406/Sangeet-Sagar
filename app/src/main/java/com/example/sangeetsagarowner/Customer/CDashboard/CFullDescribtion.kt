@@ -7,10 +7,8 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
@@ -35,6 +33,7 @@ class CFullDescribtion : Fragment() {
     lateinit var progress  : ProgressBar
     lateinit var model_name : String
     lateinit var token : String
+    lateinit var frame : FrameLayout
 
     lateinit var sharedPreferences: SharedPreferences
     lateinit var database : DatabaseReference
@@ -45,6 +44,10 @@ class CFullDescribtion : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.cfulldescription, container, false)
+
+        frame  = view.findViewById(R.id.cfull_frame)
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         bun = Bundle()
         bun = this.requireArguments()

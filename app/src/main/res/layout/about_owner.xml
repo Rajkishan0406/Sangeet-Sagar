@@ -5,6 +5,15 @@
     android:layout_marginTop="-3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <FrameLayout
+        android:id="@+id/about_owner_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/about_lottie"
         android:layout_width="match_parent"
@@ -164,7 +173,6 @@ government and private school. We provide trusted and branded product for long l
         android:layout_centerHorizontal="true"
         android:textSize="16dp"
         android:textColor="@color/green"
-        android:layout_marginTop="4dp"
         android:text="Address : Opposite of Ranjit hotel, Motijheel"/>
 
     <TextView
@@ -181,5 +189,9 @@ government and private school. We provide trusted and branded product for long l
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>

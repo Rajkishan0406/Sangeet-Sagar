@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.R
@@ -21,6 +19,7 @@ class Feedback :Fragment() {
     lateinit var msg : EditText
     lateinit var btn : CardView
     lateinit var pro : ProgressBar
+    lateinit var frame : FrameLayout
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -29,6 +28,9 @@ class Feedback :Fragment() {
     ): View? {
         var view: View = inflater.inflate(R.layout.feedback, container, false)
 
+        frame = view.findViewById(R.id.frame_feedback)
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         text = view.findViewById(R.id.ask_edittext)
         btn = view.findViewById(R.id.send_feedback)

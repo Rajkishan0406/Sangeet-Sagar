@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -29,6 +30,8 @@ class SettingFragment : Fragment() {
     lateinit var mAuth : FirebaseAuth
     lateinit var lot : LottieAnimationView
 
+    lateinit var frame : FrameLayout
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -42,6 +45,11 @@ class SettingFragment : Fragment() {
         brand = view.findViewById(R.id.brand_collection)
         logout = view.findViewById(R.id.logout)
         lot = view.findViewById(R.id.lottie_setting)
+
+        frame = view.findViewById(R.id.setting_owner)
+
+        val animationx = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animationx)
 
         //Animation
         val animation = AnimationUtils.loadAnimation(activity, R.anim.trans_r_l)

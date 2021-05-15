@@ -11,10 +11,8 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -48,6 +46,9 @@ class ItemFullDescription :Fragment(){
     lateinit var delete : CardView
     lateinit var edit : CardView
     lateinit var model_name : String
+
+    lateinit var frame : FrameLayout
+
     lateinit var token : String
 
     lateinit var sharedPreferences: SharedPreferences
@@ -65,6 +66,11 @@ class ItemFullDescription :Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.item_full_description_fragment,container,false)
+
+        frame = view.findViewById(R.id.full_details_owner)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         bun = Bundle()
         bun = this.requireArguments()

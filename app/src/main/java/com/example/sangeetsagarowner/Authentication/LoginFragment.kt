@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -28,6 +26,7 @@ class LoginFragment : Fragment(){
     lateinit var mAuth : FirebaseAuth
     lateinit var progress : ProgressBar
     lateinit var customer : CardView
+    lateinit var frame : FrameLayout
 
     public override fun onStart() {
         super.onStart()
@@ -56,6 +55,10 @@ class LoginFragment : Fragment(){
             savedInstanceState: Bundle?): View? {
             var view:View = inflater.inflate(R.layout.loginfragment, container, false)
 
+        frame = view.findViewById(R.id.login_frame)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animation)
 
         mAuth = FirebaseAuth.getInstance()
 

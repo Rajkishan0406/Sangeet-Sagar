@@ -6,6 +6,7 @@ import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -17,6 +18,7 @@ class About_Owner : Fragment() {
     lateinit var name : TextView
     lateinit var c1 : CardView
     lateinit var c2 : CardView
+    lateinit var frame : FrameLayout
 
     override fun onStart() {
         super.onStart()
@@ -28,6 +30,11 @@ class About_Owner : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.about_owner,container,false)
+
+        frame = view.findViewById(R.id.about_owner_frame)
+
+        val animationx = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
+        frame.startAnimation(animationx)
 
         name = view.findViewById(R.id.about_name)
         c1 = view.findViewById(R.id.about_one)
