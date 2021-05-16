@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:shadowColor="@android:color/black"
                 android:shadowDx="0"
                 android:shadowDy="0"
@@ -59,12 +59,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/time"
@@ -94,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="0"
@@ -109,13 +103,6 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/brand_collection"
@@ -145,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="0"
@@ -161,12 +148,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/sold_product"
@@ -196,7 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:layout_marginLeft="10dp"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="0"
@@ -212,12 +193,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/ask_developer"
@@ -247,7 +222,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="0"
@@ -263,12 +238,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/logout"
@@ -298,14 +267,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="2"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-light"
-                    android:text="logout"/>
+                    android:text="Logout"/>
 
 
             </RelativeLayout>
@@ -314,12 +283,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:background="@color/red"/>
 
 
     <RelativeLayout

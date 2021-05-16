@@ -2,6 +2,7 @@ package com.example.sangeetsagarowner.NavigationMenuDrawer
 
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -65,14 +66,23 @@ class Time_Update : BottomSheetDialogFragment() {
 
                 var time = SimpleDateFormat("HH:mm").format(cal.time)
                 var hour = time.substring(0,2)
-                if(hour.compareTo("12") < 0) {
+
+                if(hour.equals("00")){
+                    time = "12" + time.subSequence(2,time.length) + "AM"
+                }
+                else if(hour.equals("12")){
+                    time = "12" + time.subSequence(2,time.length) + "PM"
+                }
+                else if(hour.compareTo("12") < 0) {
                     time = time + " AM"
+                    Log.i("hour : "," "+time)
                 }
                 else
                 {
                     var jj = hour.toInt()
                     jj = jj - 12
                     time = jj.toString() + time.subSequence(2,time.length) + " PM"
+                    Log.i("hour : "," "+time)
                 }
                 to_time.setText(time)
                 time_to = to_time.text.toString()
@@ -88,11 +98,18 @@ class Time_Update : BottomSheetDialogFragment() {
 
                 var Time = SimpleDateFormat("HH:mm").format(Cal.time)
                 var Hour = Time.substring(0,2)
-                if(Hour.compareTo("12") < 0) {
+                if(Hour.equals("00")){
+                    Time = "12" + Time.subSequence(2,Time.length) + "AM"
+                }
+                else if(hour.equals("12")){
+                    Time = "12" + Time.subSequence(2,Time.length) + "PM"
+                }
+                else if(Hour.compareTo("12") < 0) {
                     Time = Time + " AM"
                 }
-                else{
-                    var jj = Hour.toInt()
+                else
+                {
+                    var jj = hour.toInt()
                     jj = jj - 12
                     Time = jj.toString() + Time.subSequence(2,Time.length) + " PM"
                 }

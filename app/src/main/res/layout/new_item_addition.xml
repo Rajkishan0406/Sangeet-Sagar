@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="330dp"
+    android:layout_height="360dp"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="bottom">
@@ -43,7 +43,7 @@
            android:layout_marginRight="15dp"
            android:layout_marginTop="8dp"
            android:layout_marginBottom="25dp"
-           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/item_name"
@@ -62,22 +62,27 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:lottie_loop="true"
-                android:scaleType="centerCrop"
-                app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/button"/>
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:background="@color/teal_700"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Add"
+                android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textAlignment="center"
-                android:textSize="24dp"/>
+                android:textSize="20dp"/>
+
+            </RelativeLayout>
 
 
         </androidx.cardview.widget.CardView>

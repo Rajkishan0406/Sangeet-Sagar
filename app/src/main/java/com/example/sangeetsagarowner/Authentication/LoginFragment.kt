@@ -27,6 +27,7 @@ class LoginFragment : Fragment(){
     lateinit var progress : ProgressBar
     lateinit var customer : CardView
     lateinit var frame : FrameLayout
+    lateinit var newi : ForgotPassword
 
     public override fun onStart() {
         super.onStart()
@@ -65,7 +66,7 @@ class LoginFragment : Fragment(){
         forgot = view.findViewById(R.id.forgot_password_textview)
         pass = view.findViewById(R.id.email)
         email = view.findViewById(R.id.password)
-        btn = view.findViewById(R.id.cardview_button)
+        btn = view.findViewById(R.id.login_btn)
         progress = view.findViewById(R.id.login_progress_bar)
         customer = view.findViewById(R.id.customer)
 
@@ -88,9 +89,10 @@ class LoginFragment : Fragment(){
         })
 
 
+        newi = ForgotPassword()
 
         forgot.setOnClickListener(View.OnClickListener {
-            setFragment(ForgotPassword())
+            newi.show(childFragmentManager,"bottom sheet")
         })
 
 

@@ -13,15 +13,15 @@ import androidx.fragment.app.Fragment
 import com.example.sangeetsagarowner.MainDashboard.Dashboard
 import com.example.sangeetsagarowner.R
 import com.google.android.gms.tasks.Task
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 
-class ForgotPassword : Fragment(){
+class ForgotPassword : BottomSheetDialogFragment(){
 
     lateinit var mAuth : FirebaseAuth
     lateinit var email : EditText
     lateinit var btn : CardView
     lateinit var progress : ProgressBar
-    lateinit var frame : FrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +29,6 @@ class ForgotPassword : Fragment(){
         savedInstanceState: Bundle?): View? {
         var view:View =  inflater.inflate(R.layout.forgotpassword,container,false)
 
-        frame = view.findViewById(R.id.forgot_frame)
-        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
-        frame.startAnimation(animation)
 
         mAuth = FirebaseAuth.getInstance()
         email = view.findViewById(R.id.email)
@@ -58,6 +55,7 @@ class ForgotPassword : Fragment(){
                         if (task.isSuccessful) {
                             progress.visibility = View.INVISIBLE
                             Toast.makeText(activity,"Password reset link send to the registered email",Toast.LENGTH_SHORT).show()
+                            dismiss()
                         } else {
                             progress.visibility = View.INVISIBLE
                             Toast.makeText(activity, "Wrong Email id please try again",

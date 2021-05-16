@@ -13,6 +13,8 @@
         android:padding="1dp"
         android:scaleType="centerCrop"
         app:lottie_autoPlay="true"
+        app:lottie_colorFilter="@color/teal_700"
+        android:alpha="0.7"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/yellow_bottom"
         app:lottie_repeatMode="reverse" />

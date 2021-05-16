@@ -22,6 +22,8 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_repeatMode="reverse"
+        app:lottie_colorFilter="@color/teal_700"
+        android:alpha="0.7"
         app:lottie_rawRes="@raw/yellow_bottom" />
 
     <com.airbnb.lottie.LottieAnimationView
@@ -66,10 +68,10 @@
         app:srcCompat="@drawable/ic_baseline_add_24"
         android:layout_gravity="end|bottom"
         app:fabCustomSize="60dp"
-        android:layout_margin="10dp"
+        android:layout_margin="18dp"
         android:elevation="0dp"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
-        app:backgroundTint="#C8161B"/>
+        app:backgroundTint="#FFFFFF"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
