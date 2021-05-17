@@ -33,7 +33,6 @@ class CFullDescribtion : Fragment() {
     lateinit var progress  : ProgressBar
     lateinit var model_name : String
     lateinit var token : String
-    lateinit var frame : FrameLayout
 
     lateinit var sharedPreferences: SharedPreferences
     lateinit var database : DatabaseReference
@@ -45,9 +44,7 @@ class CFullDescribtion : Fragment() {
             savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.cfulldescription, container, false)
 
-        frame  = view.findViewById(R.id.cfull_frame)
-        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
-        frame.startAnimation(animation)
+
 
         bun = Bundle()
         bun = this.requireArguments()

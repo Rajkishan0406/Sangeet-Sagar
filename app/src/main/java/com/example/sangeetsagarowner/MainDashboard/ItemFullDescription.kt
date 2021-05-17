@@ -8,6 +8,7 @@ import android.net.Uri
 import android.net.UrlQuerySanitizer
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.sangeetsagarowner.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -47,6 +49,8 @@ class ItemFullDescription :Fragment(){
     lateinit var edit : CardView
     lateinit var model_name : String
 
+    lateinit var card_main : CardView
+
     lateinit var frame : FrameLayout
 
     lateinit var token : String
@@ -67,10 +71,6 @@ class ItemFullDescription :Fragment(){
         savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.item_full_description_fragment,container,false)
 
-        frame = view.findViewById(R.id.full_details_owner)
-
-        val animation = AnimationUtils.loadAnimation(activity, R.anim.fragment_transaction)
-        frame.startAnimation(animation)
 
         bun = Bundle()
         bun = this.requireArguments()
@@ -79,8 +79,16 @@ class ItemFullDescription :Fragment(){
         var pref = PreferenceManager.getDefaultSharedPreferences(activity)
         var item_father = pref.getString("Item_Father",null)
 
-        image = view.findViewById(R.id.main_image)
+        card_main = view.findViewById(R.id.main_card_rough)
         model = view.findViewById(R.id.name)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.card_down_up)
+        card_main.startAnimation(animation)
+
+        val animationx = AnimationUtils.loadAnimation(activity, R.anim.trans_gone_up)
+        model.startAnimation(animationx)
+
+        image = view.findViewById(R.id.main_image)
         price = view.findViewById(R.id.price)
         weight = view.findViewById(R.id.weight)
         brand = view.findViewById(R.id.brand)
@@ -126,22 +134,32 @@ class ItemFullDescription :Fragment(){
         })
 
         delete.setOnClickListener(View.OnClickListener {
-            progress.visibility = View.VISIBLE
-            var data : DatabaseReference
-            data = FirebaseDatabase.getInstance().getReference("Products").child(item_father).child(key.toString())
-            data.removeValue().addOnCompleteListener(OnCompleteListener {
-                storage.delete().addOnCompleteListener(OnCompleteListener {
-                    progress.visibility = View.INVISIBLE
-                    Toast.makeText(activity,"Product Deleted Successfully",Toast.LENGTH_SHORT).show()
-                    val intent = Intent(getActivity(), Dashboard::class.java)
-                    getActivity()?.startActivity(intent)
-                }).addOnFailureListener(OnFailureListener {
-                    Toast.makeText(activity,"Something went wrong in deleting image",Toast.LENGTH_SHORT).show()
-                })
-            }).addOnFailureListener(OnFailureListener {
-                progress.visibility = View.INVISIBLE
-                Toast.makeText(activity,"Something went wrong",Toast.LENGTH_SHORT).show()
-            })
+            MaterialAlertDialogBuilder(this.requireContext())
+                .setTitle("Alert")
+                .setMessage("Are you sure you want to delete this model")
+                .setNegativeButton("Cancel") { dialog, which ->
+                    Log.i("Message : ", "Canceled")
+                }
+                .setPositiveButton("Delete") { dialog, which ->
+                    Log.i("Message : ", "Deleted")
+                    progress.visibility = View.VISIBLE
+                    var data : DatabaseReference
+                    data = FirebaseDatabase.getInstance().getReference("Products").child(item_father).child(key.toString())
+                    data.removeValue().addOnCompleteListener(OnCompleteListener {
+                        storage.delete().addOnCompleteListener(OnCompleteListener {
+                            progress.visibility = View.INVISIBLE
+                            Toast.makeText(activity,"Product Deleted Successfully",Toast.LENGTH_SHORT).show()
+                            val intent = Intent(getActivity(), Dashboard::class.java)
+                            getActivity()?.startActivity(intent)
+                        }).addOnFailureListener(OnFailureListener {
+                            Toast.makeText(activity,"Something went wrong in deleting image",Toast.LENGTH_SHORT).show()
+                        })
+                    }).addOnFailureListener(OnFailureListener {
+                        progress.visibility = View.INVISIBLE
+                        Toast.makeText(activity,"Something went wrong",Toast.LENGTH_SHORT).show()
+                    })
+                }
+                .show()
         })
 
         edit.setOnClickListener(View.OnClickListener {

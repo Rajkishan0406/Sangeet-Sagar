@@ -9,12 +9,15 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="Sangeet Sagar"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/main_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.SangeetSagarOwner">
-        <activity android:name=".Customer.CustomerActivity"></activity>
-        <activity android:name=".MainDashboard.Dashboard" />
-        <activity android:name=".Authentication.AuthenticationActivity">
+        <activity android:name=".Customer.CustomerActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MainDashboard.Dashboard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Authentication.AuthenticationActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

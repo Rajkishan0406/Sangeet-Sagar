@@ -38,6 +38,8 @@ class ItemDetailsFragment :Fragment(){
     lateinit var recyclerview : RecyclerView
     lateinit var progress : ProgressBar
     lateinit var emp : LottieAnimationView
+    lateinit var lot : LottieAnimationView
+    lateinit var lot2 :LottieAnimationView
     lateinit var No : CardView
     lateinit var Yes : CardView
     lateinit var delete : CardView
@@ -67,6 +69,9 @@ class ItemDetailsFragment :Fragment(){
             editor.apply()
         }
 
+
+        lot = view.findViewById(R.id.lottie_animation_wave)
+        lot2 = view.findViewById(R.id.lottie_animation_wave2)
 
         progress = view.findViewById(R.id.product_progressbar)
         database = FirebaseDatabase.getInstance().getReference("Products")
@@ -144,6 +149,8 @@ class ItemDetailsFragment :Fragment(){
             database.child(name.toString())?.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot!!.exists()){
+                        lot.visibility = View.VISIBLE
+                        lot2.visibility = View.VISIBLE
                         emp.visibility = View.INVISIBLE
                         itemname.clear()
                         for( h in snapshot.children){
@@ -163,6 +170,8 @@ class ItemDetailsFragment :Fragment(){
                         itemname.clear()
                         val adapter = ProductAdapter(itemname)
                         recyclerview.adapter = adapter
+                        lot2.visibility = View.INVISIBLE
+                        lot.visibility = View.INVISIBLE
                         emp.visibility = View.VISIBLE
                     }
                     progress.visibility = View.INVISIBLE
