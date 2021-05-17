@@ -84,8 +84,10 @@ class LoginFragment : Fragment(){
             if (P.isEmpty()) {
                 Toast.makeText(activity, "Please enter password", Toast.LENGTH_SHORT).show()
             }
-            progress.visibility = View.VISIBLE
-            login(E, P)
+            if(!E.isEmpty() && !P.isEmpty()) {
+                progress.visibility = View.VISIBLE
+                login(E, P)
+            }
         })
 
 

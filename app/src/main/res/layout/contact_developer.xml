@@ -87,14 +87,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="1dp"
-                    android:scaleType="centerCrop"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/button" />
+                    android:src="@color/teal_700"
+                    android:alpha="0.5"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -120,11 +117,12 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:text="Send"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="28dp" />
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 
@@ -147,14 +145,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="1dp"
-                    android:scaleType="centerCrop"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/button" />
+                    android:src="@color/teal_700"
+                    android:alpha="0.5"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -180,11 +175,12 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:text="Your Past Message"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="28dp" />
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 
@@ -207,14 +203,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="1dp"
-                    android:scaleType="centerCrop"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/button" />
+                    android:src="@color/teal_700"
+                    android:alpha="0.5"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,11 +233,12 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Reply"
+                    android:layout_centerVertical="true"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="28dp" />
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 

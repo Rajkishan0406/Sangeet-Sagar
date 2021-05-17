@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="420dp"
-    android:background="@color/light"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="bottom"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -23,10 +23,17 @@
             android:textSize="28dp"/>
 
         <LinearLayout
-            android:layout_width="310dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="20dp"
-            android:background="@color/red"/>
+            android:background="@color/red">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/gradient1"/>
+
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -195,14 +202,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.airbnb.lottie.LottieAnimationView
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="1dp"
-                        app:lottie_loop="true"
-                        android:scaleType="centerCrop"
-                        app:lottie_autoPlay="true"
-                        app:lottie_rawRes="@raw/button"/>
+                        android:alpha="0.5"
+                        android:background="@color/teal_700"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -228,11 +232,12 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Update"
+                        android:layout_centerVertical="true"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="28dp" />
+                        android:textSize="20dp" />
 
                 </RelativeLayout>
 

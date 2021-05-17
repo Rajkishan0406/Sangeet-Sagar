@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
 
     <FrameLayout
         android:id="@+id/time_table_owner"
@@ -12,11 +13,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_margin="3dp"
             android:layout_height="match_parent">
 
 
        <HorizontalScrollView
            android:id="@+id/scroll_view"
+           android:background="@drawable/gradient2"
            android:layout_width="match_parent"
            android:layout_height="160dp">
 
@@ -420,14 +423,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="1dp"
-                app:lottie_loop="true"
-                android:scaleType="centerCrop"
-                app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/button"/>
+                android:alpha="0.5"
+                android:background="@color/teal_700"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -453,11 +453,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Edit"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="28dp" />
+                android:textSize="20dp" />
 
         </RelativeLayout>
 

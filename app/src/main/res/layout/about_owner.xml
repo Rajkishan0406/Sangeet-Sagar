@@ -24,8 +24,10 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_colorFilter="@color/teal_200"
-        app:lottie_repeatCount="1"
+        app:lottie_repeatCount="0"
         app:lottie_rawRes="@raw/dashboard_blue_animation" />
+
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="120dp"
@@ -71,6 +73,7 @@
         android:layout_marginTop="-30dp"
         android:layout_below="@id/about_lottie"
         android:layout_marginRight="8dp"
+        android:textColor="@drawable/gradient4"
         android:fontFamily="sans-serif-condensed"
         android:text="Rajnish Prasad Choudhary"
         android:textSize="20dp"/>
@@ -82,6 +85,7 @@
         android:layout_width="wrap_content"
         android:text="Owner of Sangeet Sagar since 1990"
         android:layout_marginRight="4dp"
+        android:textColor="@color/black"
         android:layout_alignParentRight="true"
         android:textStyle="italic"
         android:layout_height="wrap_content"/>
@@ -90,25 +94,22 @@
         android:id="@+id/about_one"
         android:layout_width="match_parent"
         android:layout_below="@id/about_name"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="28dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
-        android:layout_height="230dp">
+        android:layout_height="250dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="2dp"
-                android:layout_height="230dp"
-                android:background="@color/light_red"/>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:alpha="0.5"
                 android:src="@drawable/gradient1"/>
 
     <TextView
@@ -116,7 +117,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="8dp"
         android:layout_width="wrap_content"
-        android:text="Sangeet Sanagr is an electronic for PUBLIC ADDRESS SOUND systems,
+        android:padding="5dp"
+        android:text="Sangeet Sanagr is an electronic shop for PUBLIC ADDRESS SOUND systems,
 shop stared around 1985 and now become one of the oldest and trusted electrnic shop in Motijheel."
         android:layout_height="wrap_content"/>
 
@@ -125,6 +127,7 @@ shop stared around 1985 and now become one of the oldest and trusted electrnic s
         android:layout_marginLeft="8dp"
         android:layout_below="@id/para_1"
         android:layout_marginTop="3dp"
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Shop is stared by late MR. TAKESHWAR PRASAD CHOUDHARY (Father of Rajnish Prasad Choudhary)."/>
@@ -134,6 +137,7 @@ shop stared around 1985 and now become one of the oldest and trusted electrnic s
         android:layout_below="@id/para_2"
         android:layout_marginTop="3dp"
         android:layout_marginLeft="8dp"
+        android:padding="5dp"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -159,6 +163,7 @@ government and private school. We provide trusted and branded product for long l
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:alpha="0.5"
             android:src="@drawable/gradient1"/>
 
         <RelativeLayout
@@ -172,6 +177,7 @@ government and private school. We provide trusted and branded product for long l
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="16dp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/green"
         android:text="Address : Opposite of Ranjit hotel, Motijheel"/>
 

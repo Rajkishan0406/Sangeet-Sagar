@@ -21,10 +21,25 @@
         android:scaleType="centerCrop"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
+        android:layout_marginBottom="-30dp"
         app:lottie_repeatMode="reverse"
         app:lottie_colorFilter="@color/teal_700"
         android:alpha="0.7"
         app:lottie_rawRes="@raw/yellow_bottom" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                android:layout_marginBottom="-80dp"
+                app:lottie_loop="true"
+                app:lottie_repeatMode="reverse"
+                app:lottie_colorFilter="@color/teal_700"
+                android:alpha="0.7"
+                app:lottie_rawRes="@raw/yellow_bottom" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/brand_empty"

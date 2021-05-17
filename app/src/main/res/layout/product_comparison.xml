@@ -313,14 +313,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="1dp"
-                app:lottie_loop="true"
-                android:scaleType="centerCrop"
-                app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/button"/>
+                android:alpha="0.5"
+                android:background="@color/teal_700"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -346,11 +343,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Show Details"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="28dp" />
+                android:textSize="20dp" />
 
         </RelativeLayout>
 
