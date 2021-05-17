@@ -33,6 +33,8 @@ class CFullDescribtion : Fragment() {
     lateinit var progress  : ProgressBar
     lateinit var model_name : String
     lateinit var token : String
+    lateinit var card_main : CardView
+    lateinit var card_img : CardView
 
     lateinit var sharedPreferences: SharedPreferences
     lateinit var database : DatabaseReference
@@ -49,6 +51,14 @@ class CFullDescribtion : Fragment() {
         bun = Bundle()
         bun = this.requireArguments()
         var key : String? = bun.getString("item")
+
+        card_main = view.findViewById(R.id.cmain_card_rough)
+        card_img = view.findViewById(R.id.cimage_card)
+
+        val animation = AnimationUtils.loadAnimation(activity, R.anim.card_down_up)
+        card_main.startAnimation(animation)
+
+
 
         var pref = PreferenceManager.getDefaultSharedPreferences(activity)
         var item_father = pref.getString("Item_Father",null)
