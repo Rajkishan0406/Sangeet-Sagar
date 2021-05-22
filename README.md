@@ -3,7 +3,7 @@
 
 
 Sangeet Sagar is an electronic shop. This Project is basically for my own shop which contains all detailed information about different variety of product available in our shop.
-Main motive of this app is to reduce barrier between customer and shop owner. This app has 2 differnet section one from shop owner side and other from customer side, 
+Main motive of this app is to reduce barrier between customer and shop owner. This app has 2 different section one from shop owner side and other from customer side, 
 these section are differentiate by authentication fragment which is only authorized by shop owner.
 
 
