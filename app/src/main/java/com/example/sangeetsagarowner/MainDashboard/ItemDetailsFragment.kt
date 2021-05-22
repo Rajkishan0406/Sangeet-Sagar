@@ -101,7 +101,7 @@ class ItemDetailsFragment :Fragment(){
                     }
                     .setPositiveButton("Delete") { dialog, which ->
                         Log.i("Message : ", "Deleted")
-                        Toast.makeText(activity,"Plaese wait few seconds!!",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity,"Please wait few seconds!!",Toast.LENGTH_SHORT).show()
                         if (name != null) {
                             storage.delete().addOnCompleteListener(OnCompleteListener{
                                 database!!.child(name).removeValue()

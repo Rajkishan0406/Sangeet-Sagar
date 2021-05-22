@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginRight="25dp"
                 android:layout_marginLeft="25dp"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -53,6 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:textColor="@color/purple_700"
                         android:text="Continue As Customer"
                         android:textAlignment="center"
                         android:textSize="18dp" />

@@ -143,21 +143,25 @@ class ItemFullDescription :Fragment(){
                 .setPositiveButton("Delete") { dialog, which ->
                     Log.i("Message : ", "Deleted")
                     progress.visibility = View.VISIBLE
-                    var data : DatabaseReference
+                    var data: DatabaseReference
+                    var delete_it = 0 as Int
                     data = FirebaseDatabase.getInstance().getReference("Products").child(item_father).child(key.toString())
-                    data.removeValue().addOnCompleteListener(OnCompleteListener {
-                        storage.delete().addOnCompleteListener(OnCompleteListener {
-                            progress.visibility = View.INVISIBLE
-                            Toast.makeText(activity,"Product Deleted Successfully",Toast.LENGTH_SHORT).show()
-                            val intent = Intent(getActivity(), Dashboard::class.java)
-                            getActivity()?.startActivity(intent)
+                    if (delete_it == 0) {
+                        data.removeValue().addOnCompleteListener(OnCompleteListener {
+                            storage.delete().addOnCompleteListener(OnCompleteListener {
+                                progress.visibility = View.INVISIBLE
+                                delete_it = 1
+                                Toast.makeText(activity, "Product Deleted Successfully", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(getActivity(), Dashboard::class.java)
+                                getActivity()?.startActivity(intent)
+                            }).addOnFailureListener(OnFailureListener {
+                                Toast.makeText(activity, "Something went wrong in deleting image", Toast.LENGTH_SHORT).show()
+                            })
                         }).addOnFailureListener(OnFailureListener {
-                            Toast.makeText(activity,"Something went wrong in deleting image",Toast.LENGTH_SHORT).show()
+                            progress.visibility = View.INVISIBLE
+                            Toast.makeText(activity, "Something went wrong", Toast.LENGTH_SHORT).show()
                         })
-                    }).addOnFailureListener(OnFailureListener {
-                        progress.visibility = View.INVISIBLE
-                        Toast.makeText(activity,"Something went wrong",Toast.LENGTH_SHORT).show()
-                    })
+                    }
                 }
                 .show()
         })
